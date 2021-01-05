@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NavController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,6 @@ Route::get('/contact', [HomeController::class, 'indexContact'])->name('contact')
 
 // Admin
 Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
-
+Route::resource('/admin/nav', NavController::class);
 
 Auth::routes();

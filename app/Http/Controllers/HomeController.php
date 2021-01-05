@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nav;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,19 +24,23 @@ class HomeController extends Controller
      */
     public function indexHome()
     {
-        return view('pages.user.home.index');
+        $navs = Nav::all();
+        return view('pages.user.home.index', compact("navs"));
     }
     public function indexServices()
     {
-        return view('pages.user.services.index');
+        $navs = Nav::all();
+        return view('pages.user.services.index', compact("navs"));
     }
     public function indexBlog()
     {
-        return view('pages.user.blog.index');
+        $navs = Nav::all();
+        return view('pages.user.blog.index', compact("navs"));
     }
     public function indexContact()
     {
-        return view('pages.user.contact.index');
+        $navs = Nav::all();
+        return view('pages.user.contact.index', compact("navs"));
     }
     public function indexAdmin()
     {
