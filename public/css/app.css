@@ -1060,6 +1060,10 @@ ul {
 	header and icon box element
 ------------------------------------*/
 
+nav ul {
+  margin-bottom: 0;
+}
+
 .service {
   margin-bottom: 90px;
 }
