@@ -30,3 +30,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+require('./modules/main');
+require('./modules/map');
+
+require('./modules/circle-progress.min');
+require('./modules/jquery-2.1.4.min');
+require('./modules/magnific-popup.min');
+require('./modules/owl.carousel.min');
