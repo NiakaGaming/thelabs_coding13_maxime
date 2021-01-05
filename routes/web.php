@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.user.home.index');
 });
+Route::get('/services', function () {
+    return view('pages.user.services.index');
+});
+Route::get('/blog', function () {
+    return view('pages.user.blog.index');
+});
+Route::get('/contact', function () {
+    return view('pages.user.contact.index');
+});
 
 Auth::routes();
 
