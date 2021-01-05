@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    Services
+@endsection
+
 @section('content')
     @include('partials.banner')
     @include('pages.user.services.service.index')
