@@ -8,8 +8,8 @@
      </div>
      <!-- slider -->
      <div id="hero-slider" class="owl-carousel">
-         <div class="item  hero-item" data-bg="img/01.jpg"></div>
-         <div class="item  hero-item" data-bg="img/02.jpg"></div>
+         <div class="item  hero-item" data-bg="{{ asset('/img/carousel/' . $carousels[0]->img) }}"></div>
+         <div class="item  hero-item" data-bg="{{ asset('/img/carousel/' . $carousels[1]->img) }}"></div>
      </div>
  </div>
  <!-- Intro Section -->

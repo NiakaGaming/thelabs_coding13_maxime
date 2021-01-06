@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavController;
 use App\Http\Controllers\LogoController;
@@ -26,5 +27,6 @@ Route::get('/contact', [HomeController::class, 'indexContact'])->name('contact')
 Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
 Route::resource('/admin/nav', NavController::class);
 Route::put('/admin/logo/{logo}', [LogoController::class, "update"]);
+Route::resource('/admin/carousel', CarouselController::class);
 
 Auth::routes();

@@ -1,10 +1,19 @@
 @extends('layouts.admin')
 
 @section('title')
-    Navs
+    NavBar
 @endsection
 
 @section('main')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
         <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
@@ -40,7 +49,7 @@
                         @method("put")
                         @csrf
                         <div class="form-group">
-                            <label for="img">Logo</label>
+                            <label for="img">Changer le logo</label>
                         </div>
                         <div class="mb-4">
                             <input type="file" id="img" name="img">

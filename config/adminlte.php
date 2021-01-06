@@ -226,8 +226,12 @@ return [
     'menu' => [
         ['header' => 'HOME PAGE'],
         [
-            'text' => 'Navs',
+            'text' => 'NavBar',
             'url'  => 'admin/nav',
+        ],
+        [
+            'text' => 'Carousel',
+            'url'  => 'admin/carousel',
         ],
         ['header' => 'SERVICES PAGE'],
         [

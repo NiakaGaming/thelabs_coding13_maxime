@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Logo;
-use App\Models\Nav;
+use App\Models\Carousel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class NavController extends Controller
+class CarouselController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class NavController extends Controller
      */
     public function index()
     {
-        $navs = Nav::all();
-        $logos = Logo::all();
-        return view("pages.admin.nav.index", compact("navs", "logos"));
+        $carousels = Carousel::all();
+        return view("pages.admin.carousel.index", compact("carousels"));
     }
 
     /**
@@ -44,10 +43,10 @@ class NavController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function show(Nav $nav)
+    public function show(Carousel $carousel)
     {
         //
     }
@@ -55,30 +54,38 @@ class NavController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Nav $nav)
+    public function edit(Carousel $carousel)
     {
-        //
+        // 
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            "link" => "required",
+            "name" => "required|",
+            "img" => "required|file",
         ]);
 
-        $nav = Nav::find($id);
-        $nav->link = $request->link;
-        $nav->save();
+        // Name
+        $carousel = Carousel::find($id);
+        $carousel->name = $request->name;
+
+        // Image
+        Storage::disk("public")->delete("img/carousel/" . $carousel->img);
+        $carousel->img = $request->file("img")->hashName();
+        $request->file("img")->storePublicly("img/carousel", "public");
+
+        $carousel->save();
 
         return redirect()->back();
     }
@@ -86,10 +93,10 @@ class NavController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nav $nav)
+    public function destroy(Carousel $carousel)
     {
         //
     }

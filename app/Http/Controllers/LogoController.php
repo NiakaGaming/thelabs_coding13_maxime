@@ -71,6 +71,10 @@ class LogoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            "img" => "required|file",
+        ]);
+
         $banner = Logo::find($id);
 
         // Big Logo
@@ -85,7 +89,7 @@ class LogoController extends Controller
 
         $banner->save();
 
-        return redirect("/admin/nav");
+        return redirect()->back();
     }
 
     /**
