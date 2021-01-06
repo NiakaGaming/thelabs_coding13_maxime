@@ -5,7 +5,6 @@
 @endsection
 
 @section('main')
-    {{-- <p class="mb-0">{{ $nav->link }}</p> --}}
     <div class="row">
         <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
@@ -13,6 +12,10 @@
                     <a class="list-group-item list-group-item-action" id="{{ $nav->link }}-list" data-toggle="list"
                         href="#{{ $nav->link }}" role="tab" aria-controls="home">{{ $nav->link }}</a>
                 @endforeach
+                <a class="list-group-item list-group-item-action" id="test-list" data-toggle="list" href="#test" role="tab"
+                    aria-controls="home">
+                    <img class="img-fluid" src="{{ asset('img/logo/' . $logos[0]->img) }}" alt="">
+                    <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt=""></a>
             </div>
         </div>
         <div class="col-8">
@@ -32,6 +35,22 @@
                         </form>
                     </div>
                 @endforeach
+                <div class="tab-pane fade" id="test" role="tabpanel" aria-labelledby="test-list">
+                    <form action="/admin/logo/{{ $logos[0]->id }}" method="POST" enctype="multipart/form-data">
+                        @method("put")
+                        @csrf
+                        <div class="form-group">
+                            <label for="img">Logo</label>
+                        </div>
+                        <div class="mb-4">
+                            <input type="file" id="img" name="img">
+                        </div>
+                        <div>
+                            <button class="btn btn-success" type="submit">Modfie</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

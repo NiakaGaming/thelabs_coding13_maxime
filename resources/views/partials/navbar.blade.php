@@ -8,7 +8,7 @@
 
  <header class="header-section">
      <div class="logo">
-         <img src="img/logo.png" alt=""><!-- Logo -->
+         <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt=""><!-- Logo -->
      </div>
      <!-- Navigation -->
      <div class="responsive"><i class="fa fa-bars"></i></div>

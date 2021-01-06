@@ -2,7 +2,7 @@
  <div class="hero-section">
      <div class="hero-content">
          <div class="hero-center">
-             <img src="img/big-logo.png" alt="">
+             <img src="{{ asset('img/logo/' . $logos[0]->img) }}" alt="">
              <p>Get your freebie template now!</p>
          </div>
      </div>

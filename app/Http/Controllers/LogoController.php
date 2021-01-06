@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Logo;
-use App\Models\Nav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
-class NavController extends Controller
+class LogoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,7 @@ class NavController extends Controller
      */
     public function index()
     {
-        $navs = Nav::all();
-        $logos = Logo::all();
-        return view("pages.admin.nav.index", compact("navs", "logos"));
+        //
     }
 
     /**
@@ -44,10 +43,10 @@ class NavController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Logo  $logo
      * @return \Illuminate\Http\Response
      */
-    public function show(Nav $nav)
+    public function show(Logo $logo)
     {
         //
     }
@@ -55,10 +54,10 @@ class NavController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Logo  $logo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Nav $nav)
+    public function edit(Logo $logo)
     {
         //
     }
@@ -67,25 +66,35 @@ class NavController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Logo  $logo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $nav = Nav::find($id);
-        $nav->link = $request->link;
-        $nav->save();
+        $banner = Logo::find($id);
 
-        return redirect()->back();
+        // Big Logo
+        Storage::disk("public")->delete("img/logo/" . $banner->img);
+        $request->file("img")->storePublicly("img/logo", "public");
+        $banner->img = $request->file("img")->hashName();
+
+        // Logo Resize
+        $img = Image::make($request->file("img"))->resize(111, 32);
+        $img->save("img/logo/banner_resize.png", 100);
+        $banner->img_resize = $img->basename;
+
+        $banner->save();
+
+        return redirect("/admin/nav");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Logo  $logo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nav $nav)
+    public function destroy(Logo $logo)
     {
         //
     }

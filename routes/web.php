@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavController;
+use App\Http\Controllers\LogoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,6 @@ Route::get('/contact', [HomeController::class, 'indexContact'])->name('contact')
 // Admin
 Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
 Route::resource('/admin/nav', NavController::class);
+Route::put('/admin/logo/{logo}', [LogoController::class, "update"]);
 
 Auth::routes();
