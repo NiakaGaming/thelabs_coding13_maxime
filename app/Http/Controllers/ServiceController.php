@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carousel;
+use App\Models\Service;
+use App\Models\Icon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class CarouselController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class CarouselController extends Controller
      */
     public function index()
     {
-        $carousels = Carousel::all();
-        return view("pages.admin.home.carousel.index", compact("carousels"));
+        $services = Service::all();
+        $icons = Icon::all();
+        return view("pages.admin.home.service.index", compact("services", "icons"));
     }
 
     /**
@@ -43,10 +44,10 @@ class CarouselController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Carousel  $carousel
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Carousel $carousel)
+    public function show(Service $service)
     {
         //
     }
@@ -54,49 +55,33 @@ class CarouselController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Carousel  $carousel
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carousel $carousel)
+    public function edit(Service $service)
     {
-        // 
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Carousel  $carousel
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
-        $request->validate([
-            "name" => "required|",
-            "img" => "required|file",
-        ]);
-
-        // Name
-        $carousel = Carousel::find($id);
-        $carousel->name = $request->name;
-
-        // Image
-        Storage::disk("public")->delete("img/carousel/" . $carousel->img);
-        $carousel->img = $request->file("img")->hashName();
-        $request->file("img")->storePublicly("img/carousel", "public");
-
-        $carousel->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Carousel  $carousel
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carousel $carousel)
+    public function destroy(Service $service)
     {
         //
     }

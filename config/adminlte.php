@@ -233,6 +233,10 @@ return [
             'text' => 'Carousel',
             'url'  => 'admin/carousel',
         ],
+        [
+            'text' => 'Service',
+            'url'  => 'admin/service',
+        ],
         ['header' => 'SERVICES PAGE'],
         [
             'text' => 'test',

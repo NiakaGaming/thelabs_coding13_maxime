@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             NavSeeder::class,
+            IconSeeder::class,
             LogoSeeder::class,
             CarouselSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }
