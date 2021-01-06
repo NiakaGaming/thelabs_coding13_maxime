@@ -35,7 +35,7 @@
                         {{--CONTENT --}}
                         <div class="service mb-0">
                             <div class="icon">
-                                <i class="{{ $service->icon }}"></i>
+                                <i class="{{ $service->icon->class }}"></i>
                             </div>
                             <div class="service-text">
                                 <h2>{{ $service->title }}</h2>
@@ -49,50 +49,25 @@
         </div>
         <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
-                @foreach ($services as $service)
-                    <div class="tab-pane fade" id="{{ $service->name }}" role="tabpanel"
-                        aria-labelledby="{{ $service->name }}-list">
-                        {{-- FORM --}}
-                        <form action="/admin/carousel/{{ $service->id }}" method="post">
-                            @method("PUT")
-                            @csrf
-                            <div class="form-group">
-                                <label for="name">Nom</label>
-                                <input type="text" class="form-control mb-3" id="name" name="name"
-                                    placeholder="{{ $service->name }}">
-                                <label for="icon">Icône</label>
-                                <input type="text" class="form-control mb-3" id="icon" name="icon"
-                                    placeholder="{{ $service->icon }}">
-                                <label for="title">Titre</label>
-                                <input type="text" class="form-control mb-3" id="title" name="title"
-                                    placeholder="{{ $service->title }}">
-                                <label for="text">Texte</label>
-                                <input type="text" class="form-control mb-3" id="text" name="text"
-                                    placeholder="{{ $service->text }}">
-                            </div>
-                            <button class="btn btn-success" type="submit">Modifie</button>
-                        </form>
-                        {{-- END FORM --}}
-                    </div>
-                @endforeach
+                {{-- CREATE --}}
                 <div class="tab-pane fade" id="exemple" role="tabpanel" aria-labelledby="exemple-list">
-                    {{-- FORM --}}
-                    <form action="/admin/carousel" method="post">
-                        @method("PUT")
+                    <form action="/admin/service" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="name">Nom</label>
                             <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Nom">
                             <div>
+                                <div>
+                                    <label for="icon_id">Icônes</label>
+                                </div>
                                 <a class="btn btn-primary mb-2" id="icons" href="#"
-                                    onclick="$('.btns').slideToggle(function(){$('#icons').html($('.btns').is(':visible')?'Cacher les icôns':'Afficher les icôns');});">Afficher
-                                    les icôns</a>
+                                    onclick="$('.btns').slideToggle(function(){$('#icons').html($('.btns').is(':visible')?'Cacher':'Afficher');});">Afficher</a>
                                 <div class="btns" style="display:none">
                                     @foreach ($icons as $icon)
                                         <div class="service mb-0 mr-2">
                                             <div>
-                                                <input class="ml-2" type="radio" name="icon" id="{{ $icon->name }}"
-                                                    value="{{ $icon->class }}">
+                                                <input class="ml-2" type="radio" name="icon_id" value="{{ $icon->id }}"
+                                                    id="{{ $icon->name }}" value="{{ $icon->class }}">
                                                 <label for="{{ $icon->name }}" class="icon mr-0">
                                                     <i class="{{ $icon->class }}"></i>
                                                 </label>
@@ -108,8 +83,53 @@
                         </div>
                         <button class="btn btn-success" type="submit">Créer</button>
                     </form>
-                    {{-- END FORM --}}
                 </div>
+                {{-- END CREATE --}}
+                {{-- EDIT --}}
+                @foreach ($services as $service)
+                    <div class="tab-pane fade" id="{{ $service->name }}" role="tabpanel"
+                        aria-labelledby="{{ $service->name }}-list">
+                        <form action="/admin/service/{{ $service->id }}" method="post">
+                            @method("PUT")
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" class="form-control mb-3" id="name" name="name"
+                                    placeholder="{{ $service->name }}">
+                                <div>
+                                    <div>
+                                        <label for="icon_id">Icônes</label>
+                                    </div>
+                                    <a class="btn btn-primary mb-2" id="icons{{ $service->id }}" href="#"
+                                        onclick="$('.btns{{ $service->id }}').slideToggle(function(){$('#icons{{ $service->id }}').html($('.btns{{ $service->id }}').is(':visible')?'Cacher':'Afficher');});">Afficher</a>
+                                    <div class="btns{{ $service->id }}" style="display:none">
+                                        @foreach ($icons as $icon)
+                                            <div class="service mb-0 mr-2">
+                                                <div>
+                                                    <input class="ml-2" type="radio" name="icon_id" value="{{ $icon->id }}"
+                                                        id="{{ $icon->name . $icon->id . $service->id }}"
+                                                        value="{{ $icon->class }}">
+                                                    <label for="{{ $icon->name . $icon->id . $service->id }}"
+                                                        class="icon mr-0">
+                                                        <i class="{{ $icon->class }}"></i>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <label for="title">Titre</label>
+                                <input type="text" class="form-control mb-3" id="title" name="title"
+                                    placeholder="{{ $service->title }}">
+                                <label for="text">Texte</label>
+                                <input type="text" class="form-control mb-3" id="text" name="text"
+                                    placeholder="{{ $service->text }}">
+                            </div>
+                            <button class="btn btn-success" type="submit">Modifie</button>
+                        </form>
+                    </div>
+                @endforeach
+                {{-- END EDIT --}}
             </div>
         </div>
     </div>

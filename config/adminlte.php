@@ -226,10 +226,6 @@ return [
     'menu' => [
         ['header' => 'HOME PAGE'],
         [
-            'text' => 'NavBar',
-            'url'  => 'admin/nav',
-        ],
-        [
             'text' => 'Carousel',
             'url'  => 'admin/carousel',
         ],
@@ -251,6 +247,11 @@ return [
         [
             'text' => 'test',
             'url'  => '',
+        ],
+        ['header' => 'PARTIALS'],
+        [
+            'text' => 'NavBar',
+            'url'  => 'admin/nav',
         ],
     ],
 

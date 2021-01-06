@@ -38,7 +38,21 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "icon_id" => "required",
+            "title" => "required",
+            "text" => "required",
+        ]);
+
+        $service = new Service;
+        $service->name = $request->name;
+        $service->icon_id = $request->icon_id;
+        $service->title = $request->title;
+        $service->text = $request->text;
+        $service->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -58,9 +72,9 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        // 
     }
 
     /**
@@ -70,9 +84,23 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "icon_id" => "required",
+            "title" => "required",
+            "text" => "required",
+        ]);
+
+        $service = Service::find($id);
+        $service->name = $request->name;
+        $service->icon_id = $request->icon_id;
+        $service->title = $request->title;
+        $service->text = $request->text;
+        $service->save();
+
+        return redirect()->back();
     }
 
     /**
