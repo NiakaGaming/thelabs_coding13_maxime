@@ -16,16 +16,16 @@ class NavSeeder extends Seeder
     {
         DB::table('navs')->insert([
             [
-                'link' => "Home",
+                'link' => "home",
             ],
             [
-                'link' => "Services",
+                'link' => "services",
             ],
             [
-                'link' => "Blog",
+                'link' => "blog",
             ],
             [
-                'link' => "Contact",
+                'link' => "contact",
             ],
         ]);
     }

@@ -14,10 +14,10 @@
      <div class="responsive"><i class="fa fa-bars"></i></div>
      <nav>
          <ul class="menu-list">
-             <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/">{{ $navs[0]->link }}</a></li>
-             <li class="{{ Request::is('services') ? 'active' : '' }}"><a href="/services">{{ $navs[1]->link }}</a></li>
-             <li class="{{ Request::is('blog') ? 'active' : '' }}"><a href="/blog">{{ $navs[2]->link }}</a></li>
-             <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="/contact">{{ $navs[3]->link }}</a></li>
+             @foreach ($navs as $nav)
+                 <li class="{{ Request::is($nav->link) ? 'active' : '' }}"><a
+                         href="/{{ $nav->link }}">{{ ucfirst(trans($nav->link)) }}</a></li>
+             @endforeach
              <li><a href="/admin">Admin</a></li>
          </ul>
      </nav>

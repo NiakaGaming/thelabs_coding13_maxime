@@ -17,11 +17,12 @@
     <div class="row">
         <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
+                {{-- CREATE --}}
                 <a class="list-group-item list-group-item-action" id="exemple-list" data-toggle="list" href="#exemple"
                     role="tab" aria-controls="home">
                     <div class="service mb-0">
                         <div class="icon">
-                            <i class="flaticon-023-flask"></i>
+                            <i class="fas fa-plus"></i>
                         </div>
                         <div class="service-text">
                             <h2>Créer</h2>
@@ -29,10 +30,11 @@
                         </div>
                     </div>
                 </a>
+                {{-- END CREATE --}}
+                {{-- EDIT --}}
                 @foreach ($services as $service)
                     <a class="list-group-item list-group-item-action" id="{{ $service->name }}-list" data-toggle="list"
                         href="#{{ $service->name }}" role="tab" aria-controls="home">
-                        {{--CONTENT --}}
                         <div class="service mb-0">
                             <div class="icon">
                                 <i class="{{ $service->icon->class }}"></i>
@@ -42,9 +44,9 @@
                                 <p>{{ $service->text }}</p>
                             </div>
                         </div>
-                        {{-- END CONTENT --}}
                     </a>
                 @endforeach
+                {{-- END EDIT --}}
             </div>
         </div>
         <div class="col-8">

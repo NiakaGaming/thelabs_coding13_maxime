@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // User
-Route::get('/', [HomeController::class, 'indexHome'])->name('home');
+Route::get('/home', [HomeController::class, 'indexHome'])->name('home');
 Route::get('/services', [HomeController::class, 'indexServices'])->name('services');
 Route::get('/blog', [HomeController::class, 'indexBlog'])->name('blog');
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contact');

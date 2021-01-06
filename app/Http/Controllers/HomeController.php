@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carousel;
 use App\Models\Logo;
 use App\Models\Nav;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,13 +30,15 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logos = Logo::all();
         $carousels = Carousel::all();
-        return view('pages.user.home.index', compact("navs", "logos", "carousels"));
+        $services = Service::all();
+        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services"));
     }
     public function indexServices()
     {
         $navs = Nav::all();
         $logos = Logo::all();
-        return view('pages.user.services.index', compact("navs", "logos"));
+        $services = Service::all();
+        return view('pages.user.services.index', compact("navs", "logos", "services"));
     }
     public function indexBlog()
     {

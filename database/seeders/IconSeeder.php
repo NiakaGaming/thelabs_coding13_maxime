@@ -27,6 +27,10 @@ class IconSeeder extends Seeder
                 'name' => "idea",
                 'class' => "flaticon-037-idea",
             ],
+            [
+                'name' => "plus_sign",
+                'class' => "fas fa-plus",
+            ],
         ]);
     }
 }
