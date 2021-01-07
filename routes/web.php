@@ -33,6 +33,3 @@ Route::resource('/admin/carousel', CarouselController::class);
 Route::resource('/admin/service', ServiceController::class);
 
 Auth::routes();
-
-Route::get('/pagination', [PagniationController::class, "index"]);
-Route::get('/pagination/fetch_data', 'PaginationController@fetch_data');

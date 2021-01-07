@@ -31,7 +31,8 @@ class HomeController extends Controller
         $logos = Logo::all();
         $carousels = Carousel::all();
         $services = Service::where("id", ">", 0)->paginate(9);
-        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services"));
+        $services_quick = Service::all()->random(3);
+        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services", "services_quick"));
     }
     public function indexServices()
     {
