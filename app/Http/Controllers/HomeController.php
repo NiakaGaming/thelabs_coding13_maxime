@@ -6,6 +6,7 @@ use App\Models\Carousel;
 use App\Models\Logo;
 use App\Models\Nav;
 use App\Models\Service;
+use App\Models\Title;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,7 +33,8 @@ class HomeController extends Controller
         $carousels = Carousel::all();
         $services = Service::where("id", ">", 0)->paginate(9);
         $services_quick = Service::all()->random(3);
-        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services", "services_quick"));
+        $titles = Title::all();
+        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services", "services_quick", "titles"));
     }
     public function indexServices()
     {

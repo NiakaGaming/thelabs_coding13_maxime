@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Logo;
-use App\Models\Nav;
+use App\Models\Title;
 use Illuminate\Http\Request;
 
-class NavController extends Controller
+class TitleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class NavController extends Controller
      */
     public function index()
     {
-        $navs = Nav::all();
-        $logos = Logo::all();
-        return view("pages.admin.partials.nav.index", compact("navs", "logos"));
+        $titles = Title::all();
+        return view("pages.admin.partials.title.index", compact("titles"));
     }
 
     /**
@@ -44,10 +42,10 @@ class NavController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Title  $title
      * @return \Illuminate\Http\Response
      */
-    public function show(Nav $nav)
+    public function show(Title $title)
     {
         //
     }
@@ -55,10 +53,10 @@ class NavController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Title  $title
      * @return \Illuminate\Http\Response
      */
-    public function edit(Nav $nav)
+    public function edit(Title $title)
     {
         //
     }
@@ -67,18 +65,20 @@ class NavController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Title  $title
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            "link" => "required",
+            "name" => "required",
+            "title" => "required",
         ]);
 
-        $nav = Nav::find($id);
-        $nav->link = $request->link;
-        $nav->save();
+        $title = Title::find($id);
+        $title->name = $request->name;
+        $title->title = $request->title;
+        $title->save();
 
         return redirect()->back();
     }
@@ -86,10 +86,10 @@ class NavController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Nav  $nav
+     * @param  \App\Models\Title  $title
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Nav $nav)
+    public function destroy(Title $title)
     {
         //
     }

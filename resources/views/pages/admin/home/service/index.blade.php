@@ -14,6 +14,7 @@
             </ul>
         </div>
     @endif
+    {{-- List menu --}}
     <div class="row">
         <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
@@ -49,6 +50,7 @@
                 {{-- END EDIT --}}
             </div>
         </div>
+        {{-- Items menu --}}
         <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
                 {{-- CREATE --}}
@@ -128,6 +130,11 @@
                                     placeholder="{{ $service->text }}">
                             </div>
                             <button class="btn btn-success" type="submit">Modifie</button>
+                            <form action="/admin/service/{{ $service->id }}" method="post">
+                                @method("DELETE")
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Supprimer</button>
+                            </form>
                         </form>
                     </div>
                 @endforeach

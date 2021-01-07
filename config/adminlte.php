@@ -224,6 +224,10 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => 'Retour au site',
+            'url'  => 'home',
+        ],
         ['header' => 'HOME PAGE'],
         [
             'text' => 'Carousel',
@@ -252,6 +256,10 @@ return [
         [
             'text' => 'NavBar',
             'url'  => 'admin/nav',
+        ],
+        [
+            'text' => 'Titres',
+            'url'  => 'admin/title',
         ],
     ],
 
