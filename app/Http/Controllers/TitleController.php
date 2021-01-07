@@ -15,7 +15,13 @@ class TitleController extends Controller
     public function index()
     {
         $titles = Title::all();
-        return view("pages.admin.partials.title.index", compact("titles"));
+        $tab = [];
+        foreach ($titles as $key => $value) {
+            $str = \Str::of($value->title)->replace('<span>', '(');
+            $str2 = \Str::of($str)->replace('</span>', ')');
+            $tab[$key]=$str2;
+        }
+        return view("pages.admin.partials.title.index", compact("titles", "tab"));
     }
 
     /**

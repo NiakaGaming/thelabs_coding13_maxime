@@ -28,7 +28,7 @@
                 <tr>
                     <th scope="row">{{ $title->id }}</th>
                     <td>{{ $title->name }}</td>
-                    <td>{{ $title->title }}</td>
+                    <td>{{ $tab[$title->id - 1] }}</td>
                     <td>
                         <div class="d-flex mb-2">
                             <a class="btn btn-primary mr-2" id="icons{{ $title->id }}" href="#"

@@ -130,11 +130,11 @@
                                     placeholder="{{ $service->text }}">
                             </div>
                             <button class="btn btn-success" type="submit">Modifie</button>
-                            <form action="/admin/service/{{ $service->id }}" method="post">
-                                @method("DELETE")
-                                @csrf
-                                <button class="btn btn-danger" type="submit">Supprimer</button>
-                            </form>
+                        </form>
+                        <form action="/admin/service/{{ $service->id }}" method="post" class="mt-2">
+                            @method("DELETE")
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Supprimer</button>
                         </form>
                     </div>
                 @endforeach

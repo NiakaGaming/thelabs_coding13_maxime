@@ -16,8 +16,8 @@ class LogoSeeder extends Seeder
     {
         DB::table('logos')->insert([
             [
-                'img' => "/img/big-logo.png",
-                'img_resize' => "/img/logo.png",
+                'img' => "empty",
+                'img_resize' => "empty",
             ],
         ]);
     }

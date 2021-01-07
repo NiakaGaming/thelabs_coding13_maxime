@@ -23,8 +23,15 @@
                 @endforeach
                 <a class="list-group-item list-group-item-action" id="test-list" data-toggle="list" href="#test" role="tab"
                     aria-controls="home">
-                    <img class="img-fluid" src="{{ asset('img/logo/' . $logos[0]->img) }}" alt="">
-                    <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt=""></a>
+                    @if ($logos[0]->img == 'empty')
+                        <img class="img-fluid" src="https://tecnovivasoft.com/Design%20Studio/img/big-logo.png" alt="">
+                        <img class="img-fluid" style="width: 111px; height: 32px;"
+                            src="https://tecnovivasoft.com/Design%20Studio/img/big-logo.png" alt="">
+                    @else
+                        <img class="img-fluid" src="{{ asset('img/logo/' . $logos[0]->img) }}" alt="">
+                        <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt="">
+                    @endif
+                </a>
             </div>
         </div>
         <div class="col-8">

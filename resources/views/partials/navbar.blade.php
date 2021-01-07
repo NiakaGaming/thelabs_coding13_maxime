@@ -8,7 +8,12 @@
 
  <header class="header-section">
      <div class="logo">
-         <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt=""><!-- Logo -->
+         @if ($logos[0]->img == 'empty')
+             <img style="width: 111px; height: 32px;" src="https://tecnovivasoft.com/Design%20Studio/img/big-logo.png"
+                 alt="">
+         @else
+             <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt="">
+         @endif
      </div>
      <!-- Navigation -->
      <div class="responsive"><i class="fa fa-bars"></i></div>
