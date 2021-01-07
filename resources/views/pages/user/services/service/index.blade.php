@@ -1,6 +1,6 @@
  <!-- services section -->
  <div class="services-section spad">
-     <div class="container">
+     <div class="container" id="service">
          <div class="section-title dark">
              <h2>Get in <span>the Lab</span> and see the services</h2>
          </div>
@@ -18,6 +18,9 @@
                      </div>
                  </div>
              @endforeach
+         </div>
+         <div class="d-flex justify-content-center mb-5">
+             {{ $services->fragment('service')->links('vendor.pagination.bootstrap-4') }}
          </div>
          <div class="text-center">
              <a href="" class="site-btn">Browse</a>

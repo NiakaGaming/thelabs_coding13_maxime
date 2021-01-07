@@ -4,6 +4,7 @@ use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\PagniationController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,6 @@ Route::resource('/admin/carousel', CarouselController::class);
 Route::resource('/admin/service', ServiceController::class);
 
 Auth::routes();
+
+Route::get('/pagination', [PagniationController::class, "index"]);
+Route::get('/pagination/fetch_data', 'PaginationController@fetch_data');

@@ -56,7 +56,7 @@
                     <form action="/admin/service" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Nom</label>
+                            <label for="name">Label</label>
                             <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Nom">
                             <div>
                                 <div>
@@ -95,7 +95,7 @@
                             @method("PUT")
                             @csrf
                             <div class="form-group">
-                                <label for="name">Nom</label>
+                                <label for="name">Label</label>
                                 <input type="text" class="form-control mb-3" id="name" name="name"
                                     placeholder="{{ $service->name }}">
                                 <div>

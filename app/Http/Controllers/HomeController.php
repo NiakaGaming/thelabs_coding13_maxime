@@ -30,14 +30,14 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logos = Logo::all();
         $carousels = Carousel::all();
-        $services = Service::all();
+        $services = Service::where("id", ">", 0)->paginate(9);
         return view('pages.user.home.index', compact("navs", "logos", "carousels", "services"));
     }
     public function indexServices()
     {
         $navs = Nav::all();
         $logos = Logo::all();
-        $services = Service::all();
+        $services = Service::where("id", ">", 0)->paginate(9);
         return view('pages.user.services.index', compact("navs", "logos", "services"));
     }
     public function indexBlog()
