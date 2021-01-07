@@ -21,19 +21,19 @@ class TitleSeeder extends Seeder
             ],
             [
                 'name' => "about",
-                'title' => "GET IN THE LAB AND DISCOVER THE WORLD",
+                'title' => "Get in <span>the Lab</span> and discover the world",
             ],
             [
                 'name' => "testimonial",
-                'title' => "WHAT OUR CLIENTS SAY",
+                'title' => "What our clients say",
             ],
             [
                 'name' => "service",
-                'title' => "GET IN THE LAB AND SEE THE SERVICES",
+                'title' => "Get in <span>the Lab</span> and see the services",
             ],
             [
                 'name' => "team",
-                'title' => "GET IN THE LAB AND MEET THE TEAM",
+                'title' => "Get in <span>the Lab</span> and  meet the team",
             ],
             [
                 'name' => "promotion",

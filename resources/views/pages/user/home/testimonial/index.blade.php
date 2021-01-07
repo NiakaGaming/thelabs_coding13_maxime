@@ -2,10 +2,10 @@
  <div class="testimonial-section pb100">
      <div class="test-overlay"></div>
      <div class="container">
-         <div class="row">
+         <div class="row justify-content-end">
              <div class="col-md-8 col-md-offset-4">
                  <div class="section-title left">
-                     <h2>{{ $titles[2]->title }}</h2>
+                     <h2>{!! $titles[2]->title !!}</h2>
                  </div>
                  <div class="owl-carousel" id="testimonial-slide">
                      <!-- single testimonial -->

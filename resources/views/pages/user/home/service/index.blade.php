@@ -2,7 +2,7 @@
  <div class="services-section spad">
      <div class="container" id="service">
          <div class="section-title dark">
-             <h2>{{ $titles[3]->title }}</h2>
+             <h2>{!! $titles[3]->title !!}</h2>
          </div>
          <div class="row">
              @foreach ($services as $service)

@@ -77,7 +77,11 @@ class TitleController extends Controller
 
         $title = Title::find($id);
         $title->name = $request->name;
-        $title->title = $request->title;
+        
+        $str = \Str::of($request->title)->replace('(', '<span>');
+        $str2 = \Str::of($str)->replace(')', '</span>');
+        $title->title = $str2;
+
         $title->save();
 
         return redirect()->back();

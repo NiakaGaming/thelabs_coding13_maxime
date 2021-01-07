@@ -7,6 +7,7 @@ use App\Models\Logo;
 use App\Models\Nav;
 use App\Models\Service;
 use App\Models\Title;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
