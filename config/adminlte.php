@@ -234,6 +234,22 @@ return [
             'url'  => 'admin/carousel',
         ],
         [
+            'text' => 'About',
+            'url'  => 'admin/about',
+        ],
+        [
+            'text' => 'Testimonial',
+            'url'  => 'admin/testimonial',
+        ],
+        [
+            'text' => 'Team',
+            'url'  => 'admin/team',
+        ],
+        [
+            'text' => 'Promotion',
+            'url'  => 'admin/promotion',
+        ],
+        [
             'text' => 'Service',
             'url'  => 'admin/service',
         ],
@@ -260,6 +276,10 @@ return [
         [
             'text' => 'Titres',
             'url'  => 'admin/title',
+        ],
+        [
+            'text' => 'Contact form',
+            'url'  => 'admin/contact-form',
         ],
     ],
 

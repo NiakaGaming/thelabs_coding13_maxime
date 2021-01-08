@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavController;
@@ -30,12 +31,13 @@ Route::get('/contact', [HomeController::class, 'indexContact'])->name('contact')
 // ADMIN
 // ----------------------------------------------------------------------------------------------------
 Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
-Route::put('/admin/logo/{logo}', [LogoController::class, "update"])->name("admin.logo.edit");
 Route::resource('/admin/carousel', CarouselController::class);
 Route::resource('/admin/service', ServiceController::class);
+Route::resource('/admin/about', AboutController::class);
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);
+Route::put('/admin/logo/{logo}', [LogoController::class, "update"])->name("admin.logo.edit");
 // ----------------------------------------------------------------------------------------------------
 
 Auth::routes();

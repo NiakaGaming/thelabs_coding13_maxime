@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Carousel;
 use App\Models\Logo;
 use App\Models\Nav;
 use App\Models\Service;
 use App\Models\Title;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,7 +35,8 @@ class HomeController extends Controller
         $services = Service::where("id", ">", 0)->paginate(9);
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
-        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services", "services_quick", "titles"));
+        $abouts = About::all();
+        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services", "services_quick", "titles", "abouts"));
     }
     public function indexServices()
     {
