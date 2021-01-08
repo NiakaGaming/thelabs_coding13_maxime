@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Carousel;
+use App\Models\Choice;
 use App\Models\Logo;
 use App\Models\Nav;
 use App\Models\Service;
+use App\Models\Team;
 use App\Models\Title;
 use Illuminate\Http\Request;
 
@@ -36,7 +38,11 @@ class HomeController extends Controller
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
         $abouts = About::all();
-        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts"));
+        $teams = Team::all();
+        $choice = Choice::first();
+        $random_team_1 = Team::all()->except($choice->team_id)->random(1);
+        $random_team_2 = Team::all()->except([$choice->team_id, $random_team_1[0]->id])->random(1);
+        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts", "teams", "choice", "random_team_1", "random_team_2"));
     }
     public function indexServices()
     {

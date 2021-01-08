@@ -9,6 +9,7 @@ use App\Http\Controllers\TitleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ChoiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,7 @@ Route::resource('/admin/service', ServiceController::class);
 Route::resource('/admin/about', AboutController::class);
 Route::resource('/admin/testimonial', TestimonialController::class);
 Route::resource('/admin/team', TeamController::class);
+Route::put('/admin/choice/{choice}', [ChoiceController::class, "update"])->name("admin.choice.edit");
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);

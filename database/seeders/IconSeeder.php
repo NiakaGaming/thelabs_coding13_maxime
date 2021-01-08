@@ -229,6 +229,10 @@ class IconSeeder extends Seeder
                 'name' => "plus_sign",
                 'class' => "fas fa-plus",
             ],
+            [
+                'name' => "mouse",
+                'class' => "fas fa-mouse-pointer",
+            ],
         ]);
     }
 }

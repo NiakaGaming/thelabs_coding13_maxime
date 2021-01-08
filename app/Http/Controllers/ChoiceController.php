@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
+use App\Models\Choice;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class ChoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::first();
-        return view("pages.admin.home.about.index", compact("about"));
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class AboutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Choice  $choice
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show(Choice $choice)
     {
         //
     }
@@ -53,10 +52,10 @@ class AboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Choice  $choice
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit(Choice $choice)
     {
         //
     }
@@ -65,22 +64,14 @@ class AboutController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Choice  $choice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $request->validate([
-            "text_1" => "required",
-            "text_2" => "required",
-            "btn" => "required",
-        ]);
-
-        $about = About::find($id);
-        $about->text_1 = $request->text_1;
-        $about->text_2 = $request->text_2;
-        $about->btn = $request->btn;
-        $about->save();
+        $choice = Choice::find(1);
+        $choice->team_id = $request->team_id;
+        $choice->save();
 
         return redirect()->back();
     }
@@ -88,10 +79,10 @@ class AboutController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  \App\Models\Choice  $choice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy(Choice $choice)
     {
         //
     }

@@ -38,8 +38,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="link">Changer le titre</label>
-                                <input type="text" class="form-control" id="link" name="link"
-                                    placeholder="{{ $nav->link }}">
+                                <input type="text" class="form-control" id="link" name="link" value="{{ $nav->link }}">
                             </div>
                             <button class="btn btn-success" type="submit">Modifie</button>
                         </form>

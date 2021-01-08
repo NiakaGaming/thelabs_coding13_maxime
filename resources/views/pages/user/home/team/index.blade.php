@@ -9,25 +9,25 @@
              <!-- single member -->
              <div class="col-sm-4">
                  <div class="member">
-                     <img src="img/team/1.jpg" alt="">
-                     <h2>Christinne Williams</h2>
-                     <h3>Project Manager</h3>
+                     <img src="{{ asset('img/team/' . $random_team_1[0]->img) }}" alt="">
+                     <h2>{{ $random_team_1[0]->last_name }} {{ $random_team_1[0]->first_name }}</h2>
+                     <h3>{{ $random_team_1[0]->function }}</h3>
                  </div>
              </div>
              <!-- single member -->
              <div class="col-sm-4">
                  <div class="member">
-                     <img src="img/team/2.jpg" alt="">
-                     <h2>Christinne Williams</h2>
-                     <h3>Junior developer</h3>
+                     <img src="{{ asset('img/team/' . $choice->team->img) }}" alt="">
+                     <h2>{{ $choice->team->last_name }} {{ $choice->team->first_name }}</h2>
+                     <h3>{{ $choice->team->function }}</h3>
                  </div>
              </div>
              <!-- single member -->
              <div class="col-sm-4">
                  <div class="member">
-                     <img src="img/team/3.jpg" alt="">
-                     <h2>Christinne Williams</h2>
-                     <h3>Digital designer</h3>
+                     <img src="{{ asset('img/team/' . $random_team_2[0]->img) }}" alt="">
+                     <h2>{{ $random_team_2[0]->last_name }} {{ $random_team_2[0]->first_name }}</h2>
+                     <h3>{{ $random_team_2[0]->function }}</h3>
                  </div>
              </div>
          </div>

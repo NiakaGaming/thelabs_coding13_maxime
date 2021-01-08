@@ -93,7 +93,7 @@ class CarouselController extends Controller
         $carousel->name = $request->name;
 
         // Image
-        if ($carousel->img != "01.jpg" || $carousel->img != "02.jpg") {
+        if ($carousel->img != "01.jpg" && $carousel->img != "02.jpg") {
             Storage::disk("public")->delete("img/carousel/" . $carousel->img);
         }
         $carousel->img = $request->file("img")->hashName();

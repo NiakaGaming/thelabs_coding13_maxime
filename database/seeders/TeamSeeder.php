@@ -42,4 +42,3 @@ class TeamSeeder extends Seeder
         ]);
     }
 }
-// https://tecnovivasoft.com/Design%20Studio/img/team/1.jpg

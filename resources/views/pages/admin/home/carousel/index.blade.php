@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label for="name">Label</label>
                                 <input type="text" class="form-control mb-3" id="name" name="name"
-                                    placeholder="{{ $carousel->name }}">
+                                    value="{{ $carousel->name }}">
                                 <div>
                                     <label for="img">Image</label>
                                 </div>

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             AboutSeeder::class,
             TeamSeeder::class,
             TestimonialSeeder::class,
+            ChoiceSeeder::class,
         ]);
     }
 }

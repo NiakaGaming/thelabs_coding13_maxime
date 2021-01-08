@@ -43,10 +43,10 @@
                                         <div class="form-group">
                                             <label for="name">Label</label>
                                             <input type="text" class="form-control mb-3" id="name" name="name"
-                                                placeholder="{{ $title->name }}">
+                                                value="{{ $title->name }}">
                                             <label for="title">Titre</label>
                                             <input type="text" class="form-control mb-3" id="title" name="title"
-                                                placeholder="{{ $title->title }}">
+                                                value="{{ $title->title }}">
                                         </div>
                                         <button class="btn btn-success" type="submit">Modifie</button>
                                     </form>

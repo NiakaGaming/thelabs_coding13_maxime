@@ -99,7 +99,7 @@
                             <div class="form-group">
                                 <label for="name">Label</label>
                                 <input type="text" class="form-control mb-3" id="name" name="name"
-                                    placeholder="{{ $service->name }}">
+                                    value="{{ $service->name }}">
                                 <div>
                                     <div>
                                         <label for="icon_id">Icônes</label>
@@ -124,10 +124,10 @@
                                 </div>
                                 <label for="title">Titre</label>
                                 <input type="text" class="form-control mb-3" id="title" name="title"
-                                    placeholder="{{ $service->title }}">
+                                    value="{{ $service->title }}">
                                 <label for="text">Texte</label>
                                 <input type="text" class="form-control mb-3" id="text" name="text"
-                                    placeholder="{{ $service->text }}">
+                                    value="{{ $service->text }}">
                             </div>
                             <button class="btn btn-success" type="submit">Modifie</button>
                         </form>
