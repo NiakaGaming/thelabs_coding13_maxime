@@ -37,7 +37,19 @@ class CarouselController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|",
+            "img" => "required|file",
+        ]);
+
+        $carousel = new Carousel;
+        $carousel->name = $request->name;
+        $carousel->img = $request->file("img")->hashName();
+        $request->file("img")->storePublicly("img/carousel", "public");
+
+        $carousel->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -96,8 +108,12 @@ class CarouselController extends Controller
      * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carousel $carousel)
+    public function destroy($id)
     {
-        //
+        $carousel = Carousel::find($id);
+        Storage::disk("public")->delete("img/carousel/" . $carousel->img);
+        $carousel->delete();
+
+        return redirect()->back();
     }
 }

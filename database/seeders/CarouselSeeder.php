@@ -15,7 +15,14 @@ class CarouselSeeder extends Seeder
     public function run()
     {
         DB::table('carousels')->insert([
-            // 
+            [
+                'name' => "empty",
+                'img' => "empty",
+            ],
+            [
+                'name' => "empty",
+                'img' => "empty",
+            ],
         ]);
     }
 }

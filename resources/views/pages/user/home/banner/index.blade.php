@@ -12,12 +12,13 @@
      </div>
      <!-- slider -->
      <div id="hero-slider" class="owl-carousel">
-         @if ($carousels->isEmpty())
+         @if ($carousels[0]->name == 'empty')
              <div class="item  hero-item" data-bg="https://picsum.photos/1920/1274"></div>
              <div class="item  hero-item" data-bg="https://picsum.photos/1920/1278"></div>
          @else
-             <div class="item  hero-item" data-bg="{{ asset('/img/carousel/' . $carousels[0]->img) }}"></div>
-             <div class="item  hero-item" data-bg="{{ asset('/img/carousel/' . $carousels[1]->img) }}"></div>
+             @foreach ($carousels as $carousel)
+                 <div class="item  hero-item" data-bg="{{ asset('/img/carousel/' . $carousel->img) }}"></div>
+             @endforeach
          @endif
      </div>
  </div>
