@@ -15,6 +15,7 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string("label");
             $table->string("text");
             $table->unsignedBigInteger("team_id");
             $table->foreign("team_id")->references("id")->on("teams")->onDelete("cascade");

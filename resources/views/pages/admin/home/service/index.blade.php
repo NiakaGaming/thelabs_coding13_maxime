@@ -85,7 +85,7 @@
                             <label for="text">Texte</label>
                             <input type="text" class="form-control mb-3" id="text" name="text" placeholder="Texte">
                         </div>
-                        <button class="btn btn-success" type="submit">Créer</button>
+                        <button class="btn btn-success" type="submit">Ajouter</button>
                     </form>
                 </div>
                 {{-- END CREATE --}}

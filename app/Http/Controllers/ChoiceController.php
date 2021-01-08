@@ -69,6 +69,10 @@ class ChoiceController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            "team_id" => "required",
+        ]);
+
         $choice = Choice::find(1);
         $choice->team_id = $request->team_id;
         $choice->save();

@@ -34,7 +34,7 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logo = Logo::first();
         $carousels = Carousel::all();
-        $services = Service::where("id", ">", 0)->paginate(9);
+        $services = Service::where("id", ">", 0)->orderBy("id", "desc")->paginate(9);
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
         $abouts = About::all();

@@ -52,7 +52,7 @@
                                 <input type="file" id="img" name="img">
                             </div>
                         </div>
-                        <button class="btn btn-success" type="submit">Créer</button>
+                        <button class="btn btn-success" type="submit">Ajouter</button>
                     </form>
                 </div>
                 @foreach ($carousels as $carousel)
