@@ -16,12 +16,12 @@ class CarouselSeeder extends Seeder
     {
         DB::table('carousels')->insert([
             [
-                'name' => "empty",
-                'img' => "empty",
+                'name' => "image_01",
+                'img' => "01.jpg",
             ],
             [
-                'name' => "empty",
-                'img' => "empty",
+                'name' => "image_02",
+                'img' => "02.jpg",
             ],
         ]);
     }

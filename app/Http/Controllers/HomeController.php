@@ -30,32 +30,32 @@ class HomeController extends Controller
     public function indexHome()
     {
         $navs = Nav::all();
-        $logos = Logo::all();
+        $logo = Logo::first();
         $carousels = Carousel::all();
         $services = Service::where("id", ">", 0)->paginate(9);
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
         $abouts = About::all();
-        return view('pages.user.home.index', compact("navs", "logos", "carousels", "services", "services_quick", "titles", "abouts"));
+        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts"));
     }
     public function indexServices()
     {
         $navs = Nav::all();
-        $logos = Logo::all();
+        $logo = Logo::first();
         $services = Service::where("id", ">", 0)->paginate(9);
-        return view('pages.user.services.index', compact("navs", "logos", "services"));
+        return view('pages.user.services.index', compact("navs", "logo", "services"));
     }
     public function indexBlog()
     {
         $navs = Nav::all();
-        $logos = Logo::all();
-        return view('pages.user.blog.index', compact("navs", "logos"));
+        $logo = Logo::first();
+        return view('pages.user.blog.index', compact("navs", "logo"));
     }
     public function indexContact()
     {
         $navs = Nav::all();
-        $logos = Logo::all();
-        return view('pages.user.contact.index', compact("navs", "logos"));
+        $logo = Logo::first();
+        return view('pages.user.contact.index', compact("navs", "logo"));
     }
     public function indexAdmin()
     {

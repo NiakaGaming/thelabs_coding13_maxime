@@ -16,8 +16,8 @@ class NavController extends Controller
     public function index()
     {
         $navs = Nav::all();
-        $logos = Logo::all();
-        return view("pages.admin.partials.nav.index", compact("navs", "logos"));
+        $logo = Logo::first();
+        return view("pages.admin.partials.nav.index", compact("navs", "logo"));
     }
 
     /**

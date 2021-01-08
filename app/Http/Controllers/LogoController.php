@@ -78,7 +78,9 @@ class LogoController extends Controller
         $banner = Logo::find($id);
 
         // Big Logo
-        Storage::disk("public")->delete("img/logo/" . $banner->img);
+        if ($banner->img != "big-logo.png") {
+            Storage::disk("public")->delete("img/logo/" . $banner->img);
+        }
         $request->file("img")->storePublicly("img/logo", "public");
         $banner->img = $request->file("img")->hashName();
 

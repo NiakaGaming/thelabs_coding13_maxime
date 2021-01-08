@@ -23,14 +23,8 @@
                 @endforeach
                 <a class="list-group-item list-group-item-action" id="test-list" data-toggle="list" href="#test" role="tab"
                     aria-controls="home">
-                    @if ($logos[0]->img == 'empty')
-                        <img class="img-fluid" src="https://tecnovivasoft.com/Design%20Studio/img/big-logo.png" alt="">
-                        <img class="img-fluid" style="width: 111px; height: 32px;"
-                            src="https://tecnovivasoft.com/Design%20Studio/img/big-logo.png" alt="">
-                    @else
-                        <img class="img-fluid" src="{{ asset('img/logo/' . $logos[0]->img) }}" alt="">
-                        <img src="{{ asset('img/logo/' . $logos[0]->img_resize) }}" alt="">
-                    @endif
+                    <img class="img-fluid" src="{{ asset('img/logo/' . $logo->img) }}" alt="">
+                    <img src="{{ asset('img/logo/' . $logo->img_resize) }}" alt="">
                 </a>
             </div>
         </div>
@@ -52,7 +46,7 @@
                     </div>
                 @endforeach
                 <div class="tab-pane fade" id="test" role="tabpanel" aria-labelledby="test-list">
-                    <form action="/admin/logo/{{ $logos[0]->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/logo/{{ $logo->id }}" method="POST" enctype="multipart/form-data">
                         @method("put")
                         @csrf
                         <div class="form-group">
@@ -66,7 +60,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

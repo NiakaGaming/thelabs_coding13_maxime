@@ -7,6 +7,8 @@ use App\Http\Controllers\NavController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +36,8 @@ Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
 Route::resource('/admin/carousel', CarouselController::class);
 Route::resource('/admin/service', ServiceController::class);
 Route::resource('/admin/about', AboutController::class);
+Route::resource('/admin/testimonial', TestimonialController::class);
+Route::resource('/admin/team', TeamController::class);
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);

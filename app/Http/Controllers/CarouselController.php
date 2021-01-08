@@ -93,7 +93,9 @@ class CarouselController extends Controller
         $carousel->name = $request->name;
 
         // Image
-        Storage::disk("public")->delete("img/carousel/" . $carousel->img);
+        if ($carousel->img != "01.jpg" || $carousel->img != "02.jpg") {
+            Storage::disk("public")->delete("img/carousel/" . $carousel->img);
+        }
         $carousel->img = $request->file("img")->hashName();
         $request->file("img")->storePublicly("img/carousel", "public");
 
