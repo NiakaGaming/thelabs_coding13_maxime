@@ -142,6 +142,11 @@
     </div>
     <button class="btn btn-success" type="submit">Modifier</button>
     </form>
+    <form action="/admin/testimonial/{{ $testimonial->id }}" method="post">
+        @method("DELETE")
+        @csrf
+        <button class="btn btn-danger mt-3" type="submit">Supprimer</button>
+    </form>
     </div>
     @endforeach
     </div>

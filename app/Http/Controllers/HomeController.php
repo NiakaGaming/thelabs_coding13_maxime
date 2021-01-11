@@ -9,6 +9,7 @@ use App\Models\Logo;
 use App\Models\Nav;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Testimonial;
 use App\Models\Title;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logo = Logo::first();
         $carousels = Carousel::all();
-        $services = Service::where("id", ">", 0)->orderBy("id", "desc")->paginate(9);
+        $services = Service::orderBy("id", "desc")->paginate(9);
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
         $abouts = About::all();
@@ -42,7 +43,8 @@ class HomeController extends Controller
         $choice = Choice::first();
         $random_team_1 = Team::all()->except($choice->team_id)->random(1);
         $random_team_2 = Team::all()->except([$choice->team_id, $random_team_1[0]->id])->random(1);
-        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts", "teams", "choice", "random_team_1", "random_team_2"));
+        $testimonials = Testimonial::all()->sortByDesc("id")->take(6);
+        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts", "teams", "choice", "random_team_1", "random_team_2", "testimonials"));
     }
     public function indexServices()
     {

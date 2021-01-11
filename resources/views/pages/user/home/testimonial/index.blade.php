@@ -8,96 +8,23 @@
                      <h2>{!! $titles[2]->title !!}</h2>
                  </div>
                  <div class="owl-carousel" id="testimonial-slide">
-                     <!-- single testimonial -->
-                     <div class="testimonial">
-                         <span>‘​‌‘​‌</span>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                             elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                         <div class="client-info">
-                             <div class="avatar">
-                                 <img src="img/avatar/01.jpg" alt="">
-                             </div>
-                             <div class="client-name">
-                                 <h2>Michael Smith</h2>
-                                 <p>CEO Company</p>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- single testimonial -->
-                     <div class="testimonial">
-                         <span>‘​‌‘​‌</span>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                             elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                         <div class="client-info">
-                             <div class="avatar">
-                                 <img src="img/avatar/02.jpg" alt="">
-                             </div>
-                             <div class="client-name">
-                                 <h2>Michael Smith</h2>
-                                 <p>CEO Company</p>
+                     @foreach ($testimonials as $testimonial)
+                         <!-- single testimonial -->
+                         <div class="testimonial">
+                             <span>‘​‌‘​‌</span>
+                             <p>{{ $testimonial->text }}
+                             </p>
+                             <div class="client-info">
+                                 <div class="avatar">
+                                     <img src="{{ 'img/team/' . $testimonial->team->img }}" alt="">
+                                 </div>
+                                 <div class="client-name">
+                                     <h2>{{ $testimonial->team->last_name }} {{ $testimonial->team->first_name }}</h2>
+                                     <p>{{ $testimonial->function }}</p>
+                                 </div>
                              </div>
                          </div>
-                     </div>
-                     <!-- single testimonial -->
-                     <div class="testimonial">
-                         <span>‘​‌‘​‌</span>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                             elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                         <div class="client-info">
-                             <div class="avatar">
-                                 <img src="img/avatar/01.jpg" alt="">
-                             </div>
-                             <div class="client-name">
-                                 <h2>Michael Smith</h2>
-                                 <p>CEO Company</p>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- single testimonial -->
-                     <div class="testimonial">
-                         <span>‘​‌‘​‌</span>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                             elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                         <div class="client-info">
-                             <div class="avatar">
-                                 <img src="img/avatar/02.jpg" alt="">
-                             </div>
-                             <div class="client-name">
-                                 <h2>Michael Smith</h2>
-                                 <p>CEO Company</p>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- single testimonial -->
-                     <div class="testimonial">
-                         <span>‘​‌‘​‌</span>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                             elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                         <div class="client-info">
-                             <div class="avatar">
-                                 <img src="img/avatar/01.jpg" alt="">
-                             </div>
-                             <div class="client-name">
-                                 <h2>Michael Smith</h2>
-                                 <p>CEO Company</p>
-                             </div>
-                         </div>
-                     </div>
-                     <!-- single testimonial -->
-                     <div class="testimonial">
-                         <span>‘​‌‘​‌</span>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                             elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                         <div class="client-info">
-                             <div class="avatar">
-                                 <img src="img/avatar/02.jpg" alt="">
-                             </div>
-                             <div class="client-name">
-                                 <h2>Michael Smith</h2>
-                                 <p>CEO Company</p>
-                             </div>
-                         </div>
-                     </div>
+                     @endforeach
                  </div>
              </div>
          </div>
