@@ -40,6 +40,10 @@ class TitleSeeder extends Seeder
                 'title' => "Are you ready to stand out?",
             ],
             [
+                'name' => "promotion_subtitle",
+                'title' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.",
+            ],
+            [
                 'name' => "promotion_btn",
                 'title' => "Browse",
             ],

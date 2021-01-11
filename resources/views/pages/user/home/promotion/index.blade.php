@@ -4,11 +4,11 @@
          <div class="row">
              <div class="col-md-9">
                  <h2>{!! $titles[5]->title !!}</h2>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+                 <p>{!! $titles[6]->title !!}</p>
              </div>
              <div class="col-md-3">
                  <div class="promo-btn-area">
-                     <a href="" class="site-btn btn-2">{!! $titles[6]->title !!}</a>
+                     <a href="" class="site-btn btn-2">{!! $titles[7]->title !!}</a>
                  </div>
              </div>
          </div>

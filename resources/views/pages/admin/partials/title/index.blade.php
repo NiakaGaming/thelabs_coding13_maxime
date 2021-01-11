@@ -44,9 +44,11 @@
                                             <label for="name">Label</label>
                                             <input type="text" class="form-control mb-3" id="name" name="name"
                                                 value="{{ $title->name }}">
-                                            <label for="title">Titre</label>
-                                            <input type="text" class="form-control mb-3" id="title" name="title"
-                                                value="{{ $tab[$title->id - 1] }}">
+                                            <div class="d-flex flex-column">
+                                                <label for="title">Titre</label>
+                                                <textarea name="title" id="title" cols="35"
+                                                    rows="4">{{ $tab[$title->id - 1] }}</textarea>
+                                            </div>
                                         </div>
                                         <button class="btn btn-success" type="submit">Modifie</button>
                                     </form>

@@ -43,8 +43,11 @@
                             <label for="title">Titre</label>
                             <input type="text" class="form-control" id="title" name="title"
                                 value="{{ $contact_form->title }}">
-                            <label for="text">Texte</label>
-                            <input type="text" class="form-control" id="text" name="text" value="{{ $contact_form->text }}">
+                            <div class="d-flex flex-column">
+                                <label for="text">Texte</label>
+                                <textarea name="text" id="text" cols="30" rows="4"
+                                    class="form-control mb-3">{{ $contact_form->text }}</textarea>
+                            </div>
                             <label for="info_title">Tite Informations</label>
                             <input type="text" class="form-control" id="info_title" name="info_title"
                                 value="{{ $contact_form->info_title }}">

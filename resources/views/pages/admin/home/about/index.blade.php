@@ -40,12 +40,16 @@
                         @method("PUT")
                         @csrf
                         <div class="form-group">
-                            <label for="text_1">Texte gauche</label>
-                            <input type="text" class="form-control mb-3" id="text_1" name="text_1"
-                                value="{{ $about->text_1 }}">
-                            <label for="text_2">Texte droite</label>
-                            <input type="text" class="form-control mb-3" id="text_2" name="text_2"
-                                value="{{ $about->text_2 }}">
+                            <div class="d-flex flex-column">
+                                <label for="text_1">Texte gauche</label>
+                                <textarea name="text_1" id="text_1" cols="30" rows="5"
+                                    class="form-control mb-3">{{ $about->text_1 }}</textarea>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label for="text_2">Texte droite</label>
+                                <textarea name="text_2" id="text_2" cols="30" rows="5"
+                                    class="form-control mb-3">{{ $about->text_2 }}</textarea>
+                            </div>
                             <label for="btn">Bouton</label>
                             <input type="text" class="form-control mb-3" id="btn" name="btn" value="{{ $about->btn }}">
                         </div>

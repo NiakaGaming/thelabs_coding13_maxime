@@ -13,6 +13,8 @@ use App\Models\Testimonial;
 use App\Models\Title;
 use App\Models\Video;
 use App\Models\ContactForm;
+use App\Models\Tag;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -55,13 +57,16 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logo = Logo::first();
         $services = Service::where("id", ">", 0)->paginate(9);
-        return view('pages.user.services.index', compact("navs", "logo", "services"));
+        $contact_form = ContactForm::first();
+        return view('pages.user.services.index', compact("navs", "logo", "services", "contact_form"));
     }
     public function indexBlog()
     {
         $navs = Nav::all();
         $logo = Logo::first();
-        return view('pages.user.blog.index', compact("navs", "logo"));
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags"));
     }
     public function indexContact()
     {

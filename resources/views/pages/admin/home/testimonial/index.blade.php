@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="label">Label</label>
                             <input type="text" class="form-control mb-3" id="label" name="label"
-                                placeholder="testimonial_1">
+                                placeholder="testimonial_exemple">
                             <div>
                                 <div>
                                     <label for="icon_id">Profiles</label>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             <label for="text">Témoignage</label>
-                            <textarea id="text" name="text" cols="30" rows="10" class="form-control mb-3"
+                            <textarea id="text" name="text" cols="30" rows="5" class="form-control mb-3"
                                 placeholder="Je témoigne du talent de ce développeur"></textarea>
                         </div>
                         <button class="btn btn-success" type="submit">Ajouter</button>
@@ -138,7 +138,7 @@
         </div>
     </div>
     <label for="text">Témoignage</label>
-    <textarea id="text" name="text" cols="30" rows="10" class="form-control mb-3">{{ $testimonial->text }}</textarea>
+    <textarea id="text" name="text" cols="30" rows="5" class="form-control mb-3">{{ $testimonial->text }}</textarea>
     </div>
     <button class="btn btn-success" type="submit">Modifier</button>
     </form>
