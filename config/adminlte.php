@@ -281,6 +281,10 @@ return [
             'text' => 'Contact form',
             'url'  => 'admin/contact-form',
         ],
+        [
+            'text' => 'Newsletter',
+            'url'  => 'admin/newsletter',
+        ],
     ],
 
     /*

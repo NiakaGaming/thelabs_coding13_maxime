@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailSender;
 use App\Models\ContactForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactFormController extends Controller
 {
@@ -36,7 +38,15 @@ class ContactFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "subject" => "required",
+            "name" => "required",
+            "message" => "required",
+        ]);
+
+        Mail::to("contact-mail@hotmail.com")->send(new MailSender($request));
+
+        return redirect()->back();
     }
 
     /**
