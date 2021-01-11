@@ -10,6 +10,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ChoiceController;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,7 @@ Route::put('/admin/choice/{choice}', [ChoiceController::class, "update"])->name(
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);
 Route::put('/admin/logo/{logo}', [LogoController::class, "update"])->name("admin.logo.edit");
+Route::resource('/admin/contact-form', ContactFormController::class);
 // ----------------------------------------------------------------------------------------------------
 
 Auth::routes();

@@ -12,6 +12,7 @@ use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\Title;
 use App\Models\Video;
+use App\Models\ContactForm;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -46,7 +47,8 @@ class HomeController extends Controller
         $random_team_2 = Team::all()->except([$choice->team_id, $random_team_1[0]->id])->random(1);
         $testimonials = Testimonial::all()->sortByDesc("id")->take(6);
         $video = Video::first();
-        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts", "teams", "choice", "random_team_1", "random_team_2", "testimonials", "video"));
+        $contact_form = ContactForm::first();
+        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts", "teams", "choice", "random_team_1", "random_team_2", "testimonials", "video", "contact_form"));
     }
     public function indexServices()
     {
