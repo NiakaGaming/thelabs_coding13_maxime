@@ -44,8 +44,8 @@
             <div class="intro-video">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <img src="img/video.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+                        <img class="w-100" src="{{ asset('img/video/' . $video->img) }}" alt="">
+                        <a href="{{ $video->link }}" class="video-popup">
                             <i class="fa fa-play"></i>
                         </a>
                     </div>

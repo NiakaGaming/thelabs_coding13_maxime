@@ -238,16 +238,16 @@ return [
             'url'  => 'admin/about',
         ],
         [
+            'text' => 'Video',
+            'url'  => 'admin/video',
+        ],
+        [
             'text' => 'Testimonial',
             'url'  => 'admin/testimonial',
         ],
         [
             'text' => 'Team',
             'url'  => 'admin/team',
-        ],
-        [
-            'text' => 'Promotion',
-            'url'  => 'admin/promotion',
         ],
         [
             'text' => 'Service',

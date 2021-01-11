@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             TestimonialSeeder::class,
             ChoiceSeeder::class,
+            VideoSeeder::class,
         ]);
     }
 }

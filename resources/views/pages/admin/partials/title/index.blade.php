@@ -46,7 +46,7 @@
                                                 value="{{ $title->name }}">
                                             <label for="title">Titre</label>
                                             <input type="text" class="form-control mb-3" id="title" name="title"
-                                                value="{{ $title->title }}">
+                                                value="{{ $tab[$title->id - 1] }}">
                                         </div>
                                         <button class="btn btn-success" type="submit">Modifie</button>
                                     </form>

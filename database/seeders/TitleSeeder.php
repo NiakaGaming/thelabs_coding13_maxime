@@ -39,6 +39,10 @@ class TitleSeeder extends Seeder
                 'name' => "promotion",
                 'title' => "Are you ready to stand out?",
             ],
+            [
+                'name' => "promotion_btn",
+                'title' => "Browse",
+            ],
         ]);
     }
 }
