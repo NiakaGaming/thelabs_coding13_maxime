@@ -15,6 +15,7 @@ use App\Models\Video;
 use App\Models\ContactForm;
 use App\Models\Tag;
 use App\Models\Categorie;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -66,7 +67,8 @@ class HomeController extends Controller
         $logo = Logo::first();
         $categories = Categorie::all();
         $tags = Tag::all();
-        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags"));
+        $articles = Article::all();
+        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles"));
     }
     public function indexContact()
     {

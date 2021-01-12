@@ -28,6 +28,10 @@ class DatabaseSeeder extends Seeder
             ContactFormSeeder::class,
             CategorieSeeder::class,
             TagSeeder::class,
+            UserSeeder::class,
+            ArticleSeeder::class,
+            TagArticleSeeder::class,
+            CategorieArticleSeeder::class,
         ]);
     }
 }

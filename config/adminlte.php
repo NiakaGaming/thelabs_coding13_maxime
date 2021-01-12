@@ -260,8 +260,8 @@ return [
         ],
         ['header' => 'BLOG PAGE'],
         [
-            'text' => 'test',
-            'url'  => '',
+            'text' => 'Articles',
+            'url'  => 'admin/article',
         ],
         ['header' => 'CONTACT PAGE'],
         [
