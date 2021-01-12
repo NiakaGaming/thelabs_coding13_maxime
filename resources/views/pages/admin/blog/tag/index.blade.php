@@ -24,14 +24,14 @@
                             <i class="fas fa-plus"></i>
                         </div>
                         <div class="service-text">
-                            <h2>Créer</h2>
-                            <p>Cliquer ici pour créer un article</p>
+                            <h2>Ajouter</h2>
+                            <p>Cliquer ici pour ajouter un tag</p>
                         </div>
                     </div>
                 </a>
                 @foreach ($tags as $tag)
-                    <a class="list-group-item list-group-item-action" id="{{ $tag->label }}-home-list" data-toggle="list"
-                        href="#{{ $tag->label }}-home" role="tab" aria-controls="home">{{ $tag->label }}</a>
+                    <a class="list-group-item list-group-item-action" id="edit-{{ $tag->id }}-home-list" data-toggle="list"
+                        href="#edit-{{ $tag->id }}-home" role="tab" aria-controls="home">{{ $tag->label }}</a>
                 @endforeach
             </div>
         </div>
@@ -49,8 +49,8 @@
                     </form>
                 </div>
                 @foreach ($tags as $tag)
-                    <div class="tab-pane fade show" id="{{ $tag->label }}-home" role="tabpanel"
-                        aria-labelledby="{{ $tag->label }}-home-list">
+                    <div class="tab-pane fade show" id="edit-{{ $tag->id }}-home" role="tabpanel"
+                        aria-labelledby="edit-{{ $tag->id }}-home-list">
                         <form action="/admin/tag/{{ $tag->id }}" method="post">
                             @method("PUT")
                             @csrf

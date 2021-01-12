@@ -19,8 +19,8 @@ class CreateTagArticlesTable extends Migration
             $table->unsignedBigInteger("article_id");
             $table->foreign("article_id")->references("id")->on("articles");
 
-            $table->unsignedBigInteger("tag_id");
-            $table->foreign("tag_id")->references("id")->on("tags");
+            $table->unsignedBigInteger("tag_id")->nullable();
+            $table->foreign("tag_id")->references("id")->on("tags")->onDelete("set null");
 
             $table->timestamps();
         });

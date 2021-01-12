@@ -19,8 +19,8 @@ class CreateArticleCategorieTable extends Migration
             $table->unsignedBigInteger("article_id");
             $table->foreign("article_id")->references("id")->on("articles");
 
-            $table->unsignedBigInteger("categorie_id");
-            $table->foreign("categorie_id")->references("id")->on("categories");
+            $table->unsignedBigInteger("categorie_id")->nullable();
+            $table->foreign("categorie_id")->references("id")->on("categories")->onDelete("set null");
 
             $table->timestamps();
         });
