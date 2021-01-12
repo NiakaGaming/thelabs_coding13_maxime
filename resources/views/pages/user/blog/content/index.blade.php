@@ -9,7 +9,7 @@
                      <!-- Post item -->
                      <div class="post-item">
                          <div class="post-thumbnail">
-                             <img src="img/blog/blog-2.jpg" alt="">
+                             <img src="{{ asset('img/article/' . $article->img) }}" alt="">
                              <div class="post-date">
                                  <h2>03</h2>
                                  <h3>Nov 2017</h3>
@@ -40,7 +40,7 @@
                  <a href="">2 Comments</a>
              </div>
              <p>{{ $article->text }}</p>
-             <a href="blog-post.html" class="read-more">Read More</a>
+             <a href="/admin/article/{{ $article->id }}" class="read-more">Read More</a>
          </div>
      </div>
      @endforeach

@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Categorie;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -111,15 +112,15 @@ class ArticleController extends Controller
         if ($article->img != "blog-1.jpg" && $article->img != "blog-2.jpg" && $article->img != "blog-3.jpg") {
             Storage::disk("public")->delete("img/article/" . $request->img);
         }
-        $article->img = $request->file("img")->hashName();
         $request->file("img")->storePublicly("img/article", "public");
+        $article->img = $request->file("img")->hashName();
 
         $article->user_id = 1;
 
         $article->save();
 
-        $article->categorie()->syncWithoutDetaching($request->categorie);
-        $article->tag()->syncWithoutDetaching($request->tag);
+        $article->categorie()->sync($request->categorie);
+        $article->tag()->sync($request->tag);
 
         return redirect()->back();
     }
@@ -130,8 +131,14 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        if ($article->img != "blog-1.jpg" && $article->img != "blog-2.jpg" && $article->img != "blog-3.jpg") {
+            Storage::disk("public")->delete("img/article/" . $request->img);
+        }
+        $article->delete();
+
+        return redirect()->back();
     }
 }

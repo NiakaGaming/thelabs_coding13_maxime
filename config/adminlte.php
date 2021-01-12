@@ -263,6 +263,14 @@ return [
             'text' => 'Articles',
             'url'  => 'admin/article',
         ],
+        [
+            'text' => 'Tags',
+            'url'  => 'admin/tag',
+        ],
+        [
+            'text' => 'Categories',
+            'url'  => 'admin/categorie',
+        ],
         ['header' => 'CONTACT PAGE'],
         [
             'text' => 'test',

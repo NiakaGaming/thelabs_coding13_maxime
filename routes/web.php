@@ -13,6 +13,8 @@ use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategorieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +47,8 @@ Route::resource('/admin/testimonial', TestimonialController::class);
 Route::resource('/admin/team', TeamController::class);
 Route::put('/admin/choice/{choice}', [ChoiceController::class, "update"])->name("admin.choice.edit");
 Route::resource('/admin/article', ArticleController::class);
+Route::resource('/admin/tag', TagController::class);
+Route::resource('/admin/categorie', CategorieController::class);
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);
