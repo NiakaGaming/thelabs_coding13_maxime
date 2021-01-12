@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Categorie;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -15,7 +17,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view("pages.admin.blog.article.index", compact("articles"));
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        return view("pages.admin.blog.article.index", compact("articles", "categories", "tags"));
     }
 
     /**
@@ -36,7 +40,29 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title" => "required",
+            "text" => "required",
+            "img" => "required",
+            "categorie" => "required",
+            "tag" => "required",
+        ]);
+
+        $article = new Article;
+        $article->title = $request->title;
+        $article->text = $request->text;
+
+        $article->img = $request->file("img")->hashName();
+        $request->file("img")->storePublicly("img/article", "public");
+
+        $article->user_id = 1;
+
+        $article->save();
+
+        $article->categorie()->syncWithoutDetaching($request->categorie);
+        $article->tag()->syncWithoutDetaching($request->tag);
+
+        return redirect()->back();
     }
 
     /**
@@ -68,9 +94,34 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "title" => "required",
+            "text" => "required",
+            "img" => "required",
+            "categorie" => "required",
+            "tag" => "required",
+        ]);
+
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->text = $request->text;
+
+        if ($article->img != "blog-1.jpg" && $article->img != "blog-2.jpg" && $article->img != "blog-3.jpg") {
+            Storage::disk("public")->delete("img/article/" . $request->img);
+        }
+        $article->img = $request->file("img")->hashName();
+        $request->file("img")->storePublicly("img/article", "public");
+
+        $article->user_id = 1;
+
+        $article->save();
+
+        $article->categorie()->syncWithoutDetaching($request->categorie);
+        $article->tag()->syncWithoutDetaching($request->tag);
+
+        return redirect()->back();
     }
 
     /**

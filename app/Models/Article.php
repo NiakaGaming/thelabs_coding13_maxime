@@ -11,14 +11,14 @@ class Article extends Model
 
     public function user()
     {
-        return $this->hasMany("App\Models\User", "user_id", "id");
+        return $this->belongsTo(User::class);
     }
     public function tag()
     {
-        return $this->belongsTo("App\Models\Tag", "tag_id", "id");
+        return $this->belongsToMany(Tag::class);
     }
     public function categorie()
     {
-        return $this->belongsTo("App\Models\Categorie", "categorie_id", "id");
+        return $this->belongsToMany(Categorie::class);
     }
 }

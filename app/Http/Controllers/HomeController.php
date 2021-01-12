@@ -40,7 +40,7 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logo = Logo::first();
         $carousels = Carousel::all();
-        $services = Service::orderBy("id", "desc")->paginate(9);
+        $services = Service::orderByDesc("id")->paginate(9);
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
         $abouts = About::all();
@@ -57,7 +57,7 @@ class HomeController extends Controller
     {
         $navs = Nav::all();
         $logo = Logo::first();
-        $services = Service::where("id", ">", 0)->paginate(9);
+        $services = Service::orderByDesc("id")->paginate(9);
         $contact_form = ContactForm::first();
         return view('pages.user.services.index', compact("navs", "logo", "services", "contact_form"));
     }

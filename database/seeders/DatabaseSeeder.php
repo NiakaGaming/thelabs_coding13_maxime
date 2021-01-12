@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             UserSeeder::class,
             ArticleSeeder::class,
-            TagArticleSeeder::class,
-            CategorieArticleSeeder::class,
+            ArticleTagSeeder::class,
+            ArticleCategorieSeeder::class,
         ]);
     }
 }

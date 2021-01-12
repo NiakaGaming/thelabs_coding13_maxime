@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TagArticleSeeder extends Seeder
+class ArticleCategorieSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,14 +14,18 @@ class TagArticleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tag_articles')->insert([
+        DB::table('article_categorie')->insert([
             [
                 'article_id' => 1,
-                'tag_id' => 3,
+                'categorie_id' => 3,
             ],
             [
                 'article_id' => 1,
-                'tag_id' => 4,
+                'categorie_id' => 4,
+            ],
+            [
+                'article_id' => 2,
+                'categorie_id' => 2,
             ],
         ]);
     }
