@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             ArticleTagSeeder::class,
             ArticleCategorieSeeder::class,
             CommentSeeder::class,
+            ProfilSeeder::class,
         ]);
     }
 }
