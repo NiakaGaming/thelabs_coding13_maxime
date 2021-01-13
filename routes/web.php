@@ -16,6 +16,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 // User
 // ----------------------------------------------------------------------------------------------------
+Route::redirect('/', '/home', 301);
 Route::get('/home', [HomeController::class, 'indexHome'])->name('home');
 Route::get('/services', [HomeController::class, 'indexServices'])->name('services');
 Route::get('/blog', [HomeController::class, 'indexBlog'])->name('blog');
@@ -52,6 +54,7 @@ Route::put('/admin/choice/{choice}', [ChoiceController::class, "update"])->name(
 Route::resource('/admin/article', ArticleController::class);
 Route::resource('/admin/tag', TagController::class);
 Route::resource('/admin/categorie', CategorieController::class);
+Route::resource('/admin/profil', ProfilController::class);
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);

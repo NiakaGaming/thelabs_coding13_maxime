@@ -16,13 +16,13 @@ class ProfilSeeder extends Seeder
     {
         DB::table('profils')->insert([
             [
-                'img' => "home",
+                'img' => "01.jpg",
                 'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
                 'function' => "CEO",
                 'user_id' => 1,
             ],
             [
-                'img' => "home",
+                'img' => "02.jpg",
                 'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
                 'function' => "Web Developer",
                 'user_id' => 2,

@@ -2,7 +2,8 @@
 
 return [
 
-    'full_name'                   => 'Nom',
+    'fisrt_name'                  => 'Prénom',
+    'last_name'                   => 'Nom',
     'email'                       => 'Email',
     'password'                    => 'Mot de passe',
     'retype_password'             => 'Entrez à nouveau le mot de passe',

@@ -17,7 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'last_name',
+        'first_name',
         'email',
         'password',
     ];
@@ -41,12 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // RELATIONSHIPS
     public function article()
     {
         return $this->belongsToMany("App\Models\Article", "article_id", "id");
     }
+
     public function comment()
     {
         return $this->belongsToMany(Comment::class, "user_id");
+    }
+
+    public function profil()
+    {
+        return $this->hasOne(Profil::class);
     }
 }

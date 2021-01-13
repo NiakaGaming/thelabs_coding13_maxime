@@ -51,7 +51,8 @@
                             <img src="img/avatar/03.jpg" alt="">
                         </div>
                         <div class="author-info">
-                            <h2>{{ $article->user->name }}, <span>Author</span></h2>
+                            <h2>{{ $article->user->last_name }} {{ $article->user->first_name }}, <span>Author</span>
+                            </h2>
                             <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut
                                 hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
                             </p>
@@ -75,7 +76,8 @@
                                             <img src="img/avatar/01.jpg" alt="">
                                         </div>
                                         <div class="commetn-text">
-                                            <h3>{{ $comment->user->name }} | 03 nov, 2017 | Reply</h3>
+                                            <h3>{{ $comment->user->last_name }} {{ $comment->user->first_name }} | 03
+                                                nov, 2017 | Reply</h3>
                                             <p>{{ $comment->message }}</p>
                                         </div>
                                     </li>
@@ -91,11 +93,12 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input disabled type="text" name="name" placeholder="{{ Auth::user()->name }}">
+                                        <input {{ Auth::check() ? 'disabled' : '' }} type="text" name="name"
+                                            placeholder="{{ Auth::check() ? Auth::user()->last_name . ' ' . Auth::user()->first_name : 'Name' }}">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input disabled type="text" name="email"
-                                            placeholder="{{ Auth::user()->email }}">
+                                        <input {{ Auth::check() ? 'disabled' : '' }} type="text" name="email"
+                                            placeholder="{{ Auth::check() ? Auth::user()->email : 'Email' }}">
                                     </div>
                                     <div class="col-sm-12">
                                         <input type="text" name="subject" placeholder="Subject">

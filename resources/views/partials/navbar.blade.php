@@ -13,7 +13,7 @@
      <!-- Navigation -->
      <div class="responsive"><i class="fa fa-bars"></i></div>
      <nav>
-         <ul class="menu-list">
+         <ul class="menu-list d-flex">
              <li class="{{ Request::is($navs[0]->link) ? 'active' : '' }}">
                  <a href="/home">{{ ucfirst(trans($navs[0]->link)) }}</a>
              <li class="{{ Request::is($navs[1]->link) ? 'active' : '' }}">
@@ -28,6 +28,25 @@
              <li>
                  <a href="/login">Log in</a>
              </li>
+             @auth
+                 <li class="nav-item dropdown">
+                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                         aria-haspopup="true" aria-expanded="false" v-pre>
+                         {{ Auth::user()->last_name }}
+                     </a>
+
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                             {{ __('Logout') }}
+                         </a>
+
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                             @csrf
+                         </form>
+                     </div>
+                 </li>
+             @endauth
          </ul>
      </nav>
  </header>
