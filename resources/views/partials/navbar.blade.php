@@ -19,6 +19,7 @@
                          href="/{{ $nav->link }}">{{ ucfirst(trans($nav->link)) }}</a></li>
              @endforeach
              <li><a href="/admin">Admin</a></li>
+             <li><a href="/login">Log in</a></li>
          </ul>
      </nav>
  </header>

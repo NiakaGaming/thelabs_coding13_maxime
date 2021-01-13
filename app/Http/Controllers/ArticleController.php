@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Categorie;
 use App\Models\Tag;
+use App\Models\Nav;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -72,9 +74,14 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        $navs = Nav::all();
+        $logo = Logo::first();
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        $article = Article::find($id);
+        return view("pages.user.blog.show", compact("navs", "logo", "categories", "tags", "article"));
     }
 
     /**
@@ -139,6 +146,11 @@ class ArticleController extends Controller
         }
         $article->delete();
 
+        return redirect()->back();
+    }
+
+    public function comment()
+    {
         return redirect()->back();
     }
 }
