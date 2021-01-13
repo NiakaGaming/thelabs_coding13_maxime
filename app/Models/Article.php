@@ -21,4 +21,8 @@ class Article extends Model
     {
         return $this->belongsToMany(Categorie::class);
     }
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

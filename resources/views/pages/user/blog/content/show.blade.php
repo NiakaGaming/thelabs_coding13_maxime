@@ -6,7 +6,7 @@
                 <!-- Single Post -->
                 <div class="single-post">
                     <div class="post-thumbnail">
-                        <img src="img/blog/blog-1.jpg" alt="">
+                        <img src="{{ asset('img/article/' . $article->img) }}" alt="">
                         <div class="post-date">
                             <h2>03</h2>
                             <h3>Nov 2017</h3>
@@ -53,37 +53,36 @@
                     </div>
                     <!-- Post Comments -->
                     <div class="comments">
-                        <h2>Comments (2)</h2>
+                        <div class="d-none">{{ $a = 0 }}</div>
+                        @foreach ($comments as $comment)
+                            @if ($comment->article_id == $article->id)
+                                <div class="d-none"> {{ $a++ }}</div>
+                            @endif
+                        @endforeach
+                        <h2>Comments ({{ $a }})
+                        </h2>
                         <ul class="comment-list">
-                            <li>
-                                <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="commetn-text">
-                                    <h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-                                    <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin
-                                        ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget
-                                        tristique. </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="commetn-text">
-                                    <h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-                                    <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin
-                                        ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget
-                                        tristique. </p>
-                                </div>
-                            </li>
+                            @foreach ($comments as $comment)
+                                @if ($comment->article_id == $article->id)
+                                    <li>
+                                        <div class="avatar">
+                                            <img src="img/avatar/01.jpg" alt="">
+                                        </div>
+                                        <div class="commetn-text">
+                                            <h3>{{ $comment->user->name }} | 03 nov, 2017 | Reply</h3>
+                                            <p>{{ $comment->message }}</p>
+                                        </div>
+                                    </li>
+                                @endif
+                            @endforeach
                         </ul>
                     </div>
                     <!-- Commert Form -->
                     <div class="row">
                         <div class="col-md-9 comment-from">
                             <h2>Leave a comment</h2>
-                            <form class="form-class">
+                            <form class="form-class" action="/comment/{{ $article->id }}" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <input disabled type="text" name="name" placeholder="{{ Auth::user()->name }}">
@@ -95,7 +94,7 @@
                                     <div class="col-sm-12">
                                         <input type="text" name="subject" placeholder="Subject">
                                         <textarea name="message" placeholder="Message"></textarea>
-                                        <button class="site-btn">send</button>
+                                        <button type="submit" class="site-btn">send</button>
                                     </div>
                                 </div>
                             </form>

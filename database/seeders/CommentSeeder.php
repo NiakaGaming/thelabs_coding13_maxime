@@ -17,12 +17,14 @@ class CommentSeeder extends Seeder
         DB::table('comments')->insert([
             [
                 'subject' => "je suis un com",
-                'text' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
+                'message' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
                 'user_id' => 1,
+                'article_id' => 1,
             ], [
                 'subject' => "je suis un autre com",
-                'text' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
+                'message' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
                 'user_id' => 2,
+                'article_id' => 1,
             ],
         ]);
     }

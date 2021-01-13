@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Article;
+use App\Models\Categorie;
+use App\Models\Logo;
+use App\Models\Tag;
+use App\Models\Nav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -33,9 +39,21 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $request->validate([
+            "subject" => "required",
+            "message" => "required",
+        ]);
+
+        $comment = new Comment;
+        $comment->subject = $request->subject;
+        $comment->message = $request->message;
+        $comment->user_id = Auth::id();
+        $comment->article_id = Article::find($id)->id;
+        $comment->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -44,9 +62,15 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show($id)
     {
-        //
+        $navs = Nav::all();
+        $logo = Logo::first();
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        $article = Article::find($id);
+        $comments = Comment::all();
+        return view("pages.user.blog.show", compact("navs", "logo", "categories", "tags", "article", "comments"));
     }
 
     /**

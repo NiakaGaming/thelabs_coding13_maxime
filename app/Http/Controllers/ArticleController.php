@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Categorie;
+use App\Models\Comment;
 use App\Models\Tag;
 use App\Models\Nav;
 use App\Models\Logo;
@@ -76,12 +77,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $navs = Nav::all();
-        $logo = Logo::first();
-        $categories = Categorie::all();
-        $tags = Tag::all();
-        $article = Article::find($id);
-        return view("pages.user.blog.show", compact("navs", "logo", "categories", "tags", "article"));
+        // 
     }
 
     /**
@@ -146,11 +142,6 @@ class ArticleController extends Controller
         }
         $article->delete();
 
-        return redirect()->back();
-    }
-
-    public function comment()
-    {
         return redirect()->back();
     }
 }

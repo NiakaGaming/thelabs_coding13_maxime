@@ -45,4 +45,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany("App\Models\Article", "article_id", "id");
     }
+    public function comment()
+    {
+        return $this->belongsToMany(Comment::class, "user_id");
+    }
 }

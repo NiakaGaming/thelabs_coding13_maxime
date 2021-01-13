@@ -15,6 +15,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::get('/home', [HomeController::class, 'indexHome'])->name('home');
 Route::get('/services', [HomeController::class, 'indexServices'])->name('services');
 Route::get('/blog', [HomeController::class, 'indexBlog'])->name('blog');
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contact');
+Route::get('/comment/{comment}', [CommentController::class, 'show'])->name('comment');
+Route::post('/comment/{article}', [CommentController::class, 'store'])->name('article.comment');
 // ----------------------------------------------------------------------------------------------------
 
 // ADMIN

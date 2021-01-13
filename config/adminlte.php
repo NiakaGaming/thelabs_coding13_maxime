@@ -228,6 +228,8 @@ return [
             'text' => 'Retour au site',
             'url'  => 'home',
         ],
+
+        // HOME
         ['header' => 'HOME PAGE'],
         [
             'text' => 'Carousel',
@@ -253,11 +255,15 @@ return [
             'text' => 'Service',
             'url'  => 'admin/service',
         ],
+
+        // SERVICE
         ['header' => 'SERVICES PAGE'],
         [
             'text' => 'test',
             'url'  => '',
         ],
+
+        // BLOG
         ['header' => 'BLOG PAGE'],
         [
             'text' => 'Articles',
@@ -271,11 +277,15 @@ return [
             'text' => 'Categories',
             'url'  => 'admin/categorie',
         ],
+
+        // CONTACT
         ['header' => 'CONTACT PAGE'],
         [
             'text' => 'test',
             'url'  => '',
         ],
+
+        // PARTIALS
         ['header' => 'PARTIALS'],
         [
             'text' => 'NavBar',
@@ -292,6 +302,13 @@ return [
         [
             'text' => 'Newsletter',
             'url'  => 'admin/newsletter',
+        ],
+
+        // INFO PERSO
+        ['header' => 'INFO PERSO'],
+        [
+            'text' => 'Profil',
+            'url'  => 'admin/profil',
         ],
     ],
 

@@ -16,6 +16,7 @@ use App\Models\ContactForm;
 use App\Models\Tag;
 use App\Models\Categorie;
 use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -68,7 +69,8 @@ class HomeController extends Controller
         $categories = Categorie::all();
         $tags = Tag::all();
         $articles = Article::all();
-        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles"));
+        $comments = Comment::all();
+        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments"));
     }
     public function indexContact()
     {

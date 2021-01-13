@@ -37,10 +37,16 @@
                      @empty Pas de tag
                      @endforelse
                  </a>
-                 <a href="">2 Comments</a>
+                 <div class="d-none">{{ $a = 0 }}</div>
+                 @foreach ($comments as $comment)
+                     @if ($comment->article_id == $article->id)
+                         <div class="d-none"> {{ $a++ }}</div>
+                     @endif
+                 @endforeach
+                 <a href="">{{ $a }} Comments</a>
              </div>
              <p>{{ $article->text }}</p>
-             <a href="/admin/article/{{ $article->id }}" class="read-more">Read More</a>
+             <a href="/comment/{{ $article->id }}" class="read-more">Read More</a>
          </div>
      </div>
      @endforeach
