@@ -17,6 +17,7 @@ use App\Models\Tag;
 use App\Models\Categorie;
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Map;
 use Dotenv\Util\Str;
 use Illuminate\Http\Request;
 
@@ -85,7 +86,9 @@ class HomeController extends Controller
     {
         $navs = Nav::all();
         $logo = Logo::first();
-        return view('pages.user.contact.index', compact("navs", "logo"));
+        $map = Map::first();
+        $contact_form = ContactForm::first();
+        return view('pages.user.contact.index', compact("navs", "logo", "map", "contact_form"));
     }
     public function indexAdmin()
     {

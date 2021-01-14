@@ -17,6 +17,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,7 @@ Route::resource('/admin/article', ArticleController::class);
 Route::resource('/admin/tag', TagController::class);
 Route::resource('/admin/categorie', CategorieController::class);
 Route::resource('/admin/profil', ProfilController::class);
+Route::resource('/admin/map', MapController::class);
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);

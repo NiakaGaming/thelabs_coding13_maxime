@@ -7,5 +7,5 @@
 @section('content')
     @include('partials.banner')
     @include('pages.user.contact.map.index')
-    @include('partials.newsletter')
+    @include('partials.contact-form')
 @endsection

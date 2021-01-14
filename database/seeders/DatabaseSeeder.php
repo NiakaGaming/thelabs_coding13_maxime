@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             ArticleCategorieSeeder::class,
             CommentSeeder::class,
             ProfilSeeder::class,
+            MapSeeder::class,
         ]);
     }
 }

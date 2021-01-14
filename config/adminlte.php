@@ -281,8 +281,8 @@ return [
         // CONTACT
         ['header' => 'CONTACT PAGE'],
         [
-            'text' => 'test',
-            'url'  => '',
+            'text' => 'Maps',
+            'url'  => '/admin/map',
         ],
 
         // PARTIALS
