@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Categorie;
-use App\Models\Comment;
 use App\Models\Tag;
-use App\Models\Nav;
-use App\Models\Logo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

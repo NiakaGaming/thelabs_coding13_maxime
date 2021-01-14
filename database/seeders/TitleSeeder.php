@@ -32,6 +32,10 @@ class TitleSeeder extends Seeder
                 'title' => "Get in <span>the Lab</span> and see the services",
             ],
             [
+                'name' => "service_prime_btn",
+                'title' => "Browse",
+            ],
+            [
                 'name' => "team",
                 'title' => "Get in <span>the Lab</span> and  meet the team",
             ],

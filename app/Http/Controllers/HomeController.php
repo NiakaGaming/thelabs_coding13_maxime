@@ -17,6 +17,7 @@ use App\Models\Tag;
 use App\Models\Categorie;
 use App\Models\Article;
 use App\Models\Comment;
+use Dotenv\Util\Str;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -59,8 +60,16 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logo = Logo::first();
         $services = Service::orderByDesc("id")->paginate(9);
+        $services_prime_1 = Service::orderByDesc("id")->take(3)->get();
+        $services_prime_2 = Service::orderByDesc("id")->skip(3)->take(3)->get();
+        $titles = Title::all();
         $contact_form = ContactForm::first();
-        return view('pages.user.services.index', compact("navs", "logo", "services", "contact_form"));
+        $blog_quick = Article::orderByDesc("id")->take(3)->get();
+        $blog_quick_smummary = [];
+        foreach ($blog_quick as $key => $value) {
+            $blog_quick_smummary[$key] = Str::substr($value->text, 0, 150) . "...";
+        }
+        return view('pages.user.services.index', compact("navs", "logo", "services", "contact_form", "services_prime_1", "services_prime_2", "titles", "blog_quick", "blog_quick_smummary"));
     }
     public function indexBlog()
     {
@@ -68,7 +77,7 @@ class HomeController extends Controller
         $logo = Logo::first();
         $categories = Categorie::all();
         $tags = Tag::all();
-        $articles = Article::all();
+        $articles = Article::orderBy("id", "asc")->paginate(3);
         $comments = Comment::all();
         return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments"));
     }

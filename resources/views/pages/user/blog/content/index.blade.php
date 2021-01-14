@@ -11,8 +11,9 @@
                          <div class="post-thumbnail">
                              <img src="{{ asset('img/article/' . $article->img) }}" alt="">
                              <div class="post-date">
-                                 <h2>03</h2>
-                                 <h3>Nov 2017</h3>
+                                 <h2>{{ $article->created_at->format('d') }}</h2>
+                                 <h3>{{ $article->created_at->format('M') }} {{ $article->created_at->format('y') }}
+                                 </h3>
                              </div>
                          </div>
                          <div class="post-content">
@@ -53,11 +54,7 @@
      {{-- END ARTICLE --}}
 
      <!-- Pagination -->
-     <div class="page-pagination">
-         <a class="active" href="">01.</a>
-         <a href="">02.</a>
-         <a href="">03.</a>
-     </div>
+     {{ $articles->links('vendor.pagination.bootstrap-4') }}
  </div>
  <!-- Sidebar area -->
  <div class="col-md-4 col-sm-5 sidebar">

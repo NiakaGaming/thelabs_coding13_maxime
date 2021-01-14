@@ -8,35 +8,18 @@
          <div class="row">
              <!-- feature item -->
              <div class="col-md-4 col-sm-4 features">
-                 <div class="icon-box light left">
-                     <div class="service-text">
-                         <h2>Get in the lab</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+                 {{-- 3 ITEMS --}}
+                 @foreach ($services_prime_1 as $prime_1)
+                     <div class="icon-box light left">
+                         <div class="service-text">
+                             <h2>{{ $prime_1->title }}</h2>
+                             <p>{{ $prime_1->text }}</p>
+                         </div>
+                         <div class="icon">
+                             <i class="{{ $prime_1->icon->class }}"></i>
+                         </div>
                      </div>
-                     <div class="icon">
-                         <i class="flaticon-002-caliper"></i>
-                     </div>
-                 </div>
-                 <!-- feature item -->
-                 <div class="icon-box light left">
-                     <div class="service-text">
-                         <h2>Projects online</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                     </div>
-                     <div class="icon">
-                         <i class="flaticon-019-coffee-cup"></i>
-                     </div>
-                 </div>
-                 <!-- feature item -->
-                 <div class="icon-box light left">
-                     <div class="service-text">
-                         <h2>SMART MARKETING</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                     </div>
-                     <div class="icon">
-                         <i class="flaticon-020-creativity"></i>
-                     </div>
-                 </div>
+                 @endforeach
              </div>
              <!-- Devices -->
              <div class="col-md-4 col-sm-4 devices">
@@ -46,39 +29,22 @@
              </div>
              <!-- feature item -->
              <div class="col-md-4 col-sm-4 features">
-                 <div class="icon-box light">
-                     <div class="icon">
-                         <i class="flaticon-037-idea"></i>
+                 {{-- 3 OTHER ITEMS --}}
+                 @foreach ($services_prime_2 as $prime_2)
+                     <div class="icon-box light">
+                         <div class="service-text">
+                             <h2>{{ $prime_2->title }}</h2>
+                             <p>{{ $prime_2->text }}</p>
+                         </div>
+                         <div class="icon">
+                             <i class="{{ $prime_2->icon->class }}"></i>
+                         </div>
                      </div>
-                     <div class="service-text">
-                         <h2>Get in the lab</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                     </div>
-                 </div>
-                 <!-- feature item -->
-                 <div class="icon-box light">
-                     <div class="icon">
-                         <i class="flaticon-025-imagination"></i>
-                     </div>
-                     <div class="service-text">
-                         <h2>Projects online</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                     </div>
-                 </div>
-                 <!-- feature item -->
-                 <div class="icon-box light">
-                     <div class="icon">
-                         <i class="flaticon-008-team"></i>
-                     </div>
-                     <div class="service-text">
-                         <h2>SMART MARKETING</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
-                     </div>
-                 </div>
+                 @endforeach
              </div>
          </div>
          <div class="text-center mt100">
-             <a href="" class="site-btn">Browse</a>
+             <a href="" class="site-btn">{!! $titles[4]->title !!}</a>
          </div>
      </div>
  </div>

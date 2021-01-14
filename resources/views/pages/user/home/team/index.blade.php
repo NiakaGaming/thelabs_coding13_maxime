@@ -3,7 +3,7 @@
      <div class="overlay"></div>
      <div class="container">
          <div class="section-title">
-             <h2>{!! $titles[4]->title !!}</h2>
+             <h2>{!! $titles[5]->title !!}</h2>
          </div>
          <div class="row">
              <!-- single member -->
