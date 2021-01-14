@@ -1,5 +1,5 @@
  <!-- features section -->
- <div class="team-section spad">
+ <div class="team-section spad" id="service_prime">
      <div class="overlay"></div>
      <div class="container">
          <div class="section-title">
@@ -44,7 +44,7 @@
              </div>
          </div>
          <div class="text-center mt100">
-             <a href="" class="site-btn">{!! $titles[4]->title !!}</a>
+             <a href="#blog_quick" class="site-btn">{!! $titles[4]->title !!}</a>
          </div>
      </div>
  </div>

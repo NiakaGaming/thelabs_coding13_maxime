@@ -23,7 +23,7 @@
              {{ $services->fragment('service')->links('vendor.pagination.bootstrap-4') }}
          </div>
          <div class="text-center">
-             <a href="" class="site-btn">Browse</a>
+             <a href="#service_prime" class="site-btn">Browse</a>
          </div>
      </div>
  </div>

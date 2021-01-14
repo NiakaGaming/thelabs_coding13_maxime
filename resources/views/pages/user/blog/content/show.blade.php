@@ -91,7 +91,8 @@
                     <div class="row">
                         <div class="col-md-9 comment-from">
                             <h2>Leave a comment</h2>
-                            <form class="form-class" action="/comment/{{ $article->id }}" method="POST">
+                            <form class="form-class" action="{{ Auth::check() ? "/comment/$article->id" : '/login' }}"
+                                method="{{ Auth::check() ? 'POST' : 'GET' }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">

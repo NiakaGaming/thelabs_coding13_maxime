@@ -1,5 +1,5 @@
  <!-- services card section-->
- <div class="services-card-section spad">
+ <div class="services-card-section spad" id="blog_quick">
      <div class="container">
          <div class="row">
              @foreach ($blog_quick as $article)
