@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('web');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -80,7 +86,7 @@ class VideoController extends Controller
         $video->link = $request->link;
 
         if ($video->img != "video.jpg") {
-            Storage::disk("public")->delete("img/video/". $video->img);
+            Storage::disk("public")->delete("img/video/" . $video->img);
         }
         $request->file("img")->storePublicly("img/video", "public");
         $video->img = $request->file("img")->hashName();

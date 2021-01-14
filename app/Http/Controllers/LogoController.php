@@ -9,6 +9,12 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class LogoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('web');
+    }
+
     /**
      * Display a listing of the resource.
      *

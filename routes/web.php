@@ -44,7 +44,7 @@ Route::post('/comment/{article}', [CommentController::class, 'store'])->name('ar
 
 // ADMIN
 // ----------------------------------------------------------------------------------------------------
-Route::get('/admin', [HomeController::class, 'indexAdmin'])->name('admin');
+Route::get('/admin', [HomeController::class, 'indexAdmin'])->middleware("admin", "web")->name('admin');
 Route::resource('/admin/carousel', CarouselController::class);
 Route::resource('/admin/service', ServiceController::class);
 Route::resource('/admin/about', AboutController::class);

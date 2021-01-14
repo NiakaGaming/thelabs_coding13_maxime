@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('web');
+    }
+
     /**
      * Display a listing of the resource.
      *

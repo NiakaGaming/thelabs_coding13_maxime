@@ -38,10 +38,10 @@
                      @empty Pas de tag
                      @endforelse
                  </a>
-                 <div class="d-none">{{ $a = 0 }}</div>
+                 <?php $a = 0  ?>
                  @foreach ($comments as $comment)
                      @if ($comment->article_id == $article->id)
-                         <div class="d-none"> {{ $a++ }}</div>
+                     <?php $a++ ?>
                      @endif
                  @endforeach
                  <a href="">{{ $a }} Comments</a>

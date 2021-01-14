@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Administrator
 {
@@ -19,7 +20,7 @@ class Administrator
         if (Auth::user()->role_id == 4) {
             return $next($request);
         } else {
-            return redirect()->back();
+            return redirect()->back()->withErrors(["msg" => "Vous n'avez pas les droits suffisant pour accèder à cette page."]);
         }
     }
 }

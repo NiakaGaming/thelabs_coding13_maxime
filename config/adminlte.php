@@ -256,13 +256,6 @@ return [
             'url'  => 'admin/service',
         ],
 
-        // SERVICE
-        ['header' => 'SERVICES PAGE'],
-        [
-            'text' => 'test',
-            'url'  => '',
-        ],
-
         // BLOG
         ['header' => 'BLOG PAGE'],
         [

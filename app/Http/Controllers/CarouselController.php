@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('web');
+    }
+
     /**
      * Display a listing of the resource.
      *

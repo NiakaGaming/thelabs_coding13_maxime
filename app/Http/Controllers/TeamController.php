@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('web');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +59,7 @@ class TeamController extends Controller
         $team->img = $request->file("img")->hashName();
         $request->file("img")->storePublicly("img/team", "public");
         $team->save();
-        
+
         return redirect()->back();
     }
 
@@ -101,13 +107,13 @@ class TeamController extends Controller
         $team->function = $request->function;
 
         // Image
-        if ($team->img != "1.jpg" && $team->img != "2.jpg" && $team->img != "3.jpg" ) {
+        if ($team->img != "1.jpg" && $team->img != "2.jpg" && $team->img != "3.jpg") {
             Storage::disk("public")->delete("img/team/" . $team->img);
         }
         $team->img = $request->file("img")->hashName();
         $request->file("img")->storePublicly("img/team", "public");
         $team->save();
-        
+
         return redirect()->back();
     }
 
@@ -120,7 +126,7 @@ class TeamController extends Controller
     public function destroy($id)
     {
         $team = Team::find($id);
-        if ($team->img != "1.jpg" && $team->img != "2.jpg" && $team->img != "3.jpg" ) {
+        if ($team->img != "1.jpg" && $team->img != "2.jpg" && $team->img != "3.jpg") {
             Storage::disk("public")->delete("img/team/" . $team->img);
         }
         $team->delete();

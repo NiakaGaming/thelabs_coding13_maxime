@@ -23,7 +23,7 @@
              <li class="{{ Request::is($navs[3]->link) ? 'active' : '' }}">
                  <a href="/contact">{{ ucfirst(trans($navs[3]->link)) }}</a>
                  @auth
-                     @if (Auth::user()->role_id == 4)
+                     @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 4)
                  <li>
                      <a href="/admin">Admin</a>
                  </li>
