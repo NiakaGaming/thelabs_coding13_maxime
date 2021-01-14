@@ -58,6 +58,15 @@
                     @endforelse
                 </ul>
                 <p>Rédigé par : {{ $article->user->last_name }} {{ $article->user->first_name }}</p>
+                @if ($article->approved == 1)
+                    <div class="badge badge-success">
+                        <h4 class="mb-0">Publié</h4>
+                    </div>
+                @else
+                    <div class="badge badge-warning">
+                        <h4 class="mb-0">En attente</h4>
+                    </div>
+                @endif
                 </a>
                 @endforeach
             </div>
@@ -135,9 +144,19 @@
             </div>
             <button class="btn btn-success" type="submit">Modifier</button>
             </form>
-            <form action="/admin/article/{{ $article->id }}" method="post">
-                <button class="btn btn-danger mt-3" type="submit">Supprimer</button>
-            </form>
+            <div class="d-flex">
+                <form action="/admin/article/{{ $article->id }}" method="post" class="mr-3">
+                    @method("DELETE")
+                    @csrf
+                    <button class="btn btn-danger mt-3" type="submit">Supprimer</button>
+                </form>
+                @if ($article->approved == 0)
+                    <form action="/admin/article/approved-{{ $article->id }}" method="post">
+                        @csrf
+                        <button class="btn btn-primary mt-3" type="submit">Approuver</button>
+                    </form>
+                @endif
+            </div>
         </div>
         @endforeach
     </div>

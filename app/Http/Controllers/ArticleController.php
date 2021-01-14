@@ -6,15 +6,16 @@ use App\Models\Article;
 use App\Models\Categorie;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('redact');
-        $this->middleware('admin');
-        $this->middleware('web');
+        // $this->middleware('redact');
+        // $this->middleware('admin');
+        // $this->middleware('web');
     }
 
     /**
@@ -63,7 +64,13 @@ class ArticleController extends Controller
         $article->img = $request->file("img")->hashName();
         $request->file("img")->storePublicly("img/article", "public");
 
-        $article->user_id = 1;
+        $article->user_id = Auth::id();
+
+        if (Auth::user()->role_id == 2) {
+            $article->approved = 0;
+        } else {
+            $article->approved = 1;
+        }
 
         $article->save();
 
@@ -122,7 +129,13 @@ class ArticleController extends Controller
         $request->file("img")->storePublicly("img/article", "public");
         $article->img = $request->file("img")->hashName();
 
-        $article->user_id = 1;
+        $article->user_id = Auth::id();
+
+        if (Auth::user()->role_id == 2) {
+            $article->approved = 0;
+        } else {
+            $article->approved = 1;
+        }
 
         $article->save();
 
@@ -145,6 +158,15 @@ class ArticleController extends Controller
             Storage::disk("public")->delete("img/article/" . $request->img);
         }
         $article->delete();
+
+        return redirect()->back();
+    }
+
+    public function approved($id)
+    {
+        $article = Article::find($id);
+        $article->approved = 1;
+        $article->save();
 
         return redirect()->back();
     }
