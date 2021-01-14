@@ -79,8 +79,12 @@ class HomeController extends Controller
         $categories = Categorie::all();
         $tags = Tag::all();
         $articles = Article::orderBy("id", "asc")->paginate(3);
+        $articles_summary = [];
+        foreach ($articles as $key => $value) {
+            $articles_summary[$key] = Str::substr($value->text, 0, 300) . "...";
+        }
         $comments = Comment::all();
-        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments"));
+        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments", "articles_summary"));
     }
     public function indexContact()
     {

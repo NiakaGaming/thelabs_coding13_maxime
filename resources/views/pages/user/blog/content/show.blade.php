@@ -8,8 +8,9 @@
                     <div class="post-thumbnail">
                         <img src="{{ asset('img/article/' . $article->img) }}" alt="">
                         <div class="post-date">
-                            <h2>03</h2>
-                            <h3>Nov 2017</h3>
+                            <h2>{{ $article->created_at->format('d') }}</h2>
+                            <h3>{{ $article->created_at->format('M') }} {{ $article->created_at->format('y') }}
+                            </h3>
                         </div>
                     </div>
                     <div class="post-content">
@@ -48,14 +49,12 @@
                     <!-- Post Author -->
                     <div class="author">
                         <div class="avatar">
-                            <img src="img/avatar/03.jpg" alt="">
+                            <img src="{{ asset('img/avatar/' . $article->user->profil->img) }}" alt="">
                         </div>
                         <div class="author-info">
                             <h2>{{ $article->user->last_name }} {{ $article->user->first_name }}, <span>Author</span>
                             </h2>
-                            <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut
-                                hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.
-                            </p>
+                            <p>{{ $article->user->profil->description }}</p>
                         </div>
                     </div>
                     <!-- Post Comments -->
@@ -73,11 +72,14 @@
                                 @if ($comment->article_id == $article->id)
                                     <li>
                                         <div class="avatar">
-                                            <img src="img/avatar/01.jpg" alt="">
+                                            <img src="{{ asset('img/avatar/' . $comment->user->profil->img) }}" alt="">
                                         </div>
                                         <div class="commetn-text">
-                                            <h3>{{ $comment->user->last_name }} {{ $comment->user->first_name }} | 03
-                                                nov, 2017 | Reply</h3>
+                                            <h3>{{ $comment->user->last_name }} {{ $comment->user->first_name }} |
+                                                {{ $comment->created_at->format('d') }}
+                                                {{ $comment->created_at->format('M') }},
+                                                {{ $comment->created_at->format('y') }} | Reply
+                                            </h3>
                                             <p>{{ $comment->message }}</p>
                                         </div>
                                     </li>
