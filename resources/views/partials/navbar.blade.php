@@ -22,12 +22,18 @@
                  <a href="/blog">{{ ucfirst(trans($navs[2]->link)) }}</a>
              <li class="{{ Request::is($navs[3]->link) ? 'active' : '' }}">
                  <a href="/contact">{{ ucfirst(trans($navs[3]->link)) }}</a>
-             <li>
-                 <a href="/admin">Admin</a>
-             </li>
-             <li>
-                 <a href="/login">Log in</a>
-             </li>
+                 @auth
+                     @if (Auth::user()->role_id == 4)
+                 <li>
+                     <a href="/admin">Admin</a>
+                 </li>
+                 @endif
+             @endauth
+             @guest
+                 <li>
+                     <a href="/login">Log in</a>
+                 </li>
+             @endguest
              @auth
                  <li class="nav-item dropdown">
                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -36,8 +42,8 @@
                      </a>
 
                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                         <a class="dropdown-item" href="{{ route('logout') }}"
+                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                              {{ __('Logout') }}
                          </a>
 

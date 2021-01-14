@@ -43,7 +43,7 @@
                             <hr>
                         @endif
                         <h2>
-                            {{ $one_user->last_name }} {{ $user->first_name }}
+                            {{ $one_user->last_name }} {{ $one_user->first_name }}
                         </h2>
                         <h4>
                             {{ $one_user->email }}

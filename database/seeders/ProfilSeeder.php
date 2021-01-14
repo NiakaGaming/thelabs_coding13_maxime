@@ -27,6 +27,18 @@ class ProfilSeeder extends Seeder
                 'function' => "Web Developer",
                 'user_id' => 2,
             ],
+            [
+                'img' => "03.jpg",
+                'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
+                'function' => "Web Designer",
+                'user_id' => 3,
+            ],
+            [
+                'img' => "01.jpg",
+                'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique.",
+                'function' => "SEO",
+                'user_id' => 4,
+            ],
         ]);
     }
 }

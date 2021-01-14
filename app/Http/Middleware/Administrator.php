@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminAndWeb
+class Administrator
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class AdminAndWeb
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role_id == 4 || Auth::user()->role_id == 3) {
+        if (Auth::user()->role_id == 4) {
             return $next($request);
         } else {
             return redirect()->back();

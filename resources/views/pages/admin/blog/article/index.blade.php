@@ -57,6 +57,7 @@
                     @empty Pas de tag
                     @endforelse
                 </ul>
+                <p>Rédigé par : {{ $article->user->last_name }} {{ $article->user->first_name }}</p>
                 </a>
                 @endforeach
             </div>
