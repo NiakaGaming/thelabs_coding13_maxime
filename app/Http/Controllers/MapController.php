@@ -14,7 +14,8 @@ class MapController extends Controller
      */
     public function index()
     {
-        //
+        $map = Map::first();
+        return view("pages.admin.contact.map.index", compact("map"));
     }
 
     /**
@@ -67,9 +68,17 @@ class MapController extends Controller
      * @param  \App\Models\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Map $map)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "place" => "required",
+        ]);
+
+        $map = Map::find($id);
+        $map->place = $request->place;
+        $map->save();
+
+        return redirect()->back();
     }
 
     /**

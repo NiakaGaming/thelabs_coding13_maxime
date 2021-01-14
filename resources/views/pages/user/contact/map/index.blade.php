@@ -1,5 +1,6 @@
  <!-- Google map -->
- <div class="map" id="map-area"><iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
-         marginwidth="0"
-         src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q={{ $map->place }}+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+ <div class="map" id="map-area"> <iframe
+         src="https://maps.google.com/maps?q={{ $map->place }}map-%3Eadress%7D%7D&t=&z=13&ie=UTF8&iwloc=&output=embed"
+         width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+         tabindex="0"></iframe>
  </div>
