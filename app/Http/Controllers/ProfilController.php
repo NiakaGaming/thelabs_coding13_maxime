@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profil;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
@@ -16,8 +18,8 @@ class ProfilController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $profil = Profil::find($user->profil->id);
-        return view("pages.admin.profil.index", compact("user", "profil"));
+        $all_users = User::all();
+        return view("pages.admin.profil.index", compact("user", "all_users"));
     }
 
     /**
@@ -58,9 +60,9 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profil $profil)
+    public function edit($id)
     {
-        //
+        // 
     }
 
     /**
@@ -70,9 +72,35 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profil $profil)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "last_name" => "required",
+            "first_name" => "required",
+            "description" => "required",
+            "img" => "required|file",
+            "email" => "required",
+            "function" => "required",
+        ]);
+
+        $profil = Profil::find($id);
+        $profil->user->last_name = $request->last_name;
+        $profil->user->first_name = $request->first_name;
+        $profil->description = $request->description;
+
+        if ($profil->img != "01.jpg" && $profil->img != "02.jpg" && $profil->img != "03.jpg") {
+            Storage::disk("public")->delete("img/avatar/" . $profil->img);
+        }
+        $profil->img = $request->file("img")->hashName();
+        $request->file("img")->storePublicly("img/avatar", "public");
+
+        $profil->user->email = $request->email;
+        $profil->function = $request->function;
+
+        $profil->save();
+        $profil->user->save();
+
+        return redirect()->back();
     }
 
     /**
