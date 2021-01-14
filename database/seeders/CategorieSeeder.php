@@ -13,7 +13,7 @@ class CategorieSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
+    {
         DB::table('categories')->insert([
             [
                 'label' => "Vestibulum maximus",
@@ -32,6 +32,15 @@ class CategorieSeeder extends Seeder
             ],
             [
                 'label' => "Etiam egestas viverra",
+            ],
+            [
+                'label' => "Philosophie",
+            ],
+            [
+                'label' => "Math",
+            ],
+            [
+                'label' => "Ling",
             ],
         ]);
     }

@@ -36,6 +36,18 @@ class TagSeeder extends Seeder
             [
                 'label' => "photography",
             ],
+            [
+                'label' => "html",
+            ],
+            [
+                'label' => "css",
+            ],
+            [
+                'label' => "php",
+            ],
+            [
+                'label' => "laravel",
+            ],
         ]);
     }
 }

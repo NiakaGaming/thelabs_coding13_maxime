@@ -16,7 +16,7 @@ class ArticleController extends Controller
         $this->middleware('admin');
         $this->middleware('web');
     }
-    
+
     /**
      * Display a listing of the resource.
      *

@@ -20,6 +20,7 @@ use App\Models\Comment;
 use App\Models\Map;
 use Dotenv\Util\Str;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class HomeController extends Controller
 {
@@ -28,10 +29,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -77,14 +74,16 @@ class HomeController extends Controller
         $navs = Nav::all();
         $logo = Logo::first();
         $categories = Categorie::all();
+        $categorie_random = Categorie::all()->random(6);
         $tags = Tag::all();
-        $articles = Article::orderBy("id", "asc")->paginate(3);
+        $tag_random = Tag::all()->random(9);
+        $articles = Article::where("approved", "=", "1")->paginate(3);
         $articles_summary = [];
-        foreach ($articles as $key => $value) {
+        foreach (Article::all() as $key => $value) {
             $articles_summary[$key] = Str::substr($value->text, 0, 300) . "...";
         }
         $comments = Comment::all();
-        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments", "articles_summary"));
+        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments", "articles_summary", "categorie_random", "tag_random"));
     }
     public function indexContact()
     {

@@ -6,7 +6,7 @@
 
                  {{-- ARTICLES --}}
                  @foreach ($articles as $article)
-                     <!-- Post item -->
+                 <!-- Post item -->
                      <div class="post-item">
                          <div class="post-thumbnail">
                              <img src="{{ asset('img/article/' . $article->img) }}" alt="">
@@ -69,7 +69,7 @@
      <div class="widget-item">
          <h2 class="widget-title">Categories</h2>
          <ul>
-             @foreach ($categories as $categorie)
+             @foreach ($categorie_random as $categorie)
                  <li><a href="#">{{ $categorie->label }}</a></li>
              @endforeach
          </ul>
@@ -90,7 +90,7 @@
      <div class="widget-item">
          <h2 class="widget-title">Tags</h2>
          <ul class="tag">
-             @foreach ($tags as $tag)
+             @foreach ($tag_random as $tag)
                  <li><a href="">{{ $tag->label }}</a></li>
              @endforeach
          </ul>

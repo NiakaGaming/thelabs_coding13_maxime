@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string("title");
             $table->longText("text");
             $table->string("img");
+            $table->boolean("approved");
 
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users");
