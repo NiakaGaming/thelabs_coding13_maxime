@@ -46,7 +46,7 @@
                                                 value="{{ $title->name }}">
                                             <div class="d-flex flex-column">
                                                 <label for="title">Titre</label>
-                                                <textarea name="title" id="title" cols="35"
+                                                <textarea name="title" id="title" class="form-control" cols="35"
                                                     rows="4">{{ $tab[$title->id - 1] }}</textarea>
                                             </div>
                                         </div>
