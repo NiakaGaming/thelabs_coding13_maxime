@@ -29,6 +29,9 @@ class ArticleController extends Controller
         $articles = Article::all();
         $categories = Categorie::all();
         $tags = Tag::all();
+
+        $this->authorize("create-article");
+
         return view("pages.admin.blog.article.index", compact("articles", "categories", "tags"));
     }
 
@@ -143,6 +146,13 @@ class ArticleController extends Controller
             $article->approved = 0;
         } else {
             $article->approved = 1;
+            $newsletters = Newsletter::all();
+            foreach ($newsletters as $key => $value) {
+                Mail::to($value->email)->send(new NewsletterArticleMail($request));
+                if (env('MAIL_HOST', false) == 'smtp.mailtrap.io') {
+                    sleep(1);
+                }
+            }
         }
 
         $article->save();
@@ -174,6 +184,13 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $article->approved = 1;
+        $newsletters = Newsletter::all();
+        foreach ($newsletters as $key => $value) {
+            Mail::to($value->email)->send(new NewsletterArticleMail($article));
+            if (env('MAIL_HOST', false) == 'smtp.mailtrap.io') {
+                sleep(1);
+            }
+        }
         $article->save();
 
         return redirect()->back();

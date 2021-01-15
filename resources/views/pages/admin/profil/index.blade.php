@@ -27,12 +27,13 @@
                     <h4>
                         {{ $user->email }}
                     </h4>
-                    <img src="{{ asset('img/avatar/' . $user->profil->img) }}" alt="">
+                    <img src="{{ $user->profil->img != null ? asset('img/avatar/' . $user->profil->img) : asset('img/anonyme.png') }}"
+                        alt="">
                     <p>
-                        <b>{{ $user->profil->function }}</b>
+                        <b>{{ $user->profil->function != null ? $user->profil->function : 'Pas de fonction' }}</b>
                     </p>
                     <p>
-                        {{ $user->profil->description }}
+                        {{ $user->profil->description != null ? $user->profil->description : 'Pas de description' }}
                     </p>
                 </a>
                 @foreach ($all_users as $one_user)
@@ -48,12 +49,13 @@
                         <h4>
                             {{ $one_user->email }}
                         </h4>
-                        <img src="{{ asset('img/avatar/' . $one_user->profil->img) }}" alt="">
+                        <img src="{{ $one_user->profil->img != null ? asset('img/avatar/' . $one_user->profil->img) : asset('img/anonyme.png') }}"
+                            alt="">
                         <p>
-                            <b>{{ $one_user->profil->function }}</b>
+                            <b>{{ $one_user->profil->function != null ? $one_user->profil->function : 'Pas de fonction' }}</b>
                         </p>
                         <p>
-                            {{ $one_user->profil->description }}
+                            {{ $one_user->profil->description != null ? $one_user->profil->description : 'Pas de description' }}
                         </p>
                     </a>
                 @endforeach

@@ -17,7 +17,7 @@ class AdminWebmaster
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role_id == 4 || Auth::user()->role_id == 3) {
+        if (Auth::user()->role_id >= 3) {
             return $next($request);
         } else {
             return redirect()->back()->withErrors(["msg" => "Vous n'avez pas les droits suffisant pour accèder à cette page."]);

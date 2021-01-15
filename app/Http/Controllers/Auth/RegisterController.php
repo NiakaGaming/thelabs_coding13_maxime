@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Newsletter;
+use App\Models\Profil;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -79,6 +80,10 @@ class RegisterController extends Controller
         $newsletter = new Newsletter;
         $newsletter->email = $data['email'];
         $newsletter->save();
+
+        $profil = new Profil;
+        $profil->user_id = $user->id;
+        $profil->save();
 
         event(new UserHasRegisterdEvent($user));
 

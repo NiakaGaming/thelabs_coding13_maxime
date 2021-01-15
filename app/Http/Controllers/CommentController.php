@@ -8,6 +8,7 @@ use App\Models\Categorie;
 use App\Models\Logo;
 use App\Models\Tag;
 use App\Models\Nav;
+use App\Models\Title;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -70,7 +71,8 @@ class CommentController extends Controller
         $tags = Tag::all();
         $article = Article::find($id);
         $comments = Comment::all();
-        return view("pages.user.blog.show", compact("navs", "logo", "categories", "tags", "article", "comments"));
+        $titles = Title::all();
+        return view("pages.user.blog.show", compact("navs", "logo", "categories", "tags", "article", "comments", "titles"));
     }
 
     /**

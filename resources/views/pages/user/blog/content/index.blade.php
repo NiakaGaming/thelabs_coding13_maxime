@@ -3,10 +3,12 @@
      <div class="container">
          <div class="row">
              <div class="col-md-8 col-sm-7 blog-posts">
-
+                 @can('create-article')
+                     <a class="btn btn-success mb-4" href="/admin/article">Ajouter un article</a>
+                 @endcan
                  {{-- ARTICLES --}}
                  @foreach ($articles as $article)
-                 <!-- Post item -->
+                     <!-- Post item -->
                      <div class="post-item">
                          <div class="post-thumbnail">
                              <img src="{{ asset('img/article/' . $article->img) }}" alt="">
@@ -38,10 +40,14 @@
                      @empty Pas de tag
                      @endforelse
                  </a>
-                 <?php $a = 0  ?>
+                 @php
+                 $a = 0
+                 @endphp
                  @foreach ($comments as $comment)
                      @if ($comment->article_id == $article->id)
-                     <?php $a++ ?>
+                         @php
+                         $a++
+                         @endphp
                      @endif
                  @endforeach
                  <a href="">{{ $a }} Comments</a>
