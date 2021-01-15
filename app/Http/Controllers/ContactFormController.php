@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMailing;
-use App\Models\ContactMail;
 use App\Mail\ConfirmContactMail;
+use App\Models\ContactMail;
 use App\Models\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
