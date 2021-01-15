@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Categorie;
 use App\Models\Tag;
+use App\Models\Newsletter;
+use App\Mail\NewsletterArticleMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
@@ -68,6 +71,13 @@ class ArticleController extends Controller
             $article->approved = 0;
         } else {
             $article->approved = 1;
+            $newsletters = Newsletter::all();
+            foreach ($newsletters as $key => $value) {
+                Mail::to($value->email)->send(new NewsletterArticleMail($request));
+                if (env('MAIL_HOST', false) == 'smtp.mailtrap.io') {
+                    sleep(1);
+                }
+            }
         }
 
         $article->save();

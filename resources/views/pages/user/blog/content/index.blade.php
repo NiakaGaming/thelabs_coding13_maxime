@@ -46,7 +46,7 @@
                  @endforeach
                  <a href="">{{ $a }} Comments</a>
              </div>
-             <p>{{ $articles_summary[$loop->iteration - 1] }}</p>
+             <p>{{ $articles_summary[$article->id - 1] }}</p>
              <a href="/comment/{{ $article->id }}" class="read-more">Read More</a>
          </div>
      </div>

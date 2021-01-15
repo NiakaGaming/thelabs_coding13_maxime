@@ -9,6 +9,11 @@ use App\Mail\NewsletterMail;
 
 class NewsletterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin_web');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +44,7 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "email" =>"required|email:rfc",
+            "email" => "required|email:rfc",
         ]);
 
         $newsletter = new Newsletter;
