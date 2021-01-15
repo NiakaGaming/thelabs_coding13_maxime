@@ -37,8 +37,8 @@
                     <div class="text-center">
                         <button class="site-btn">{{ $about->btn }}</button>
                     </div>
-                    <div class=" badge badge-{{ $about->hide_show == 0 ? 'success' : 'warning' }}">
-                        <h4 class="mb-0">{{ $about->hide_show == 0 ? 'Affiché' : 'Caché' }}</h4>
+                    <div class=" badge badge-{{ $about->hide_show == 1 ? 'success' : 'warning' }}">
+                        <h4 class="mb-0">{{ $about->hide_show == 1 ? 'Affiché' : 'Caché' }}</h4>
                     </div>
                 </a>
             </div>
@@ -70,7 +70,7 @@
                     <form action="/admin/about/hid-show-{{ $about->id }}" method="post">
                         @csrf
                         <button class="btn btn-success"
-                            type="submit">{{ $about->hide_show == 0 ? 'Cacher' : 'Afficher' }}</button>
+                            type="submit">{{ $about->hide_show == 1 ? 'Cacher' : 'Afficher' }}</button>
                     </form>
                 </div>
             </div>

@@ -6,6 +6,7 @@ use App\Events\UserHasRegisterdEvent;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Newsletter;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,6 +75,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $newsletter = new Newsletter;
+        $newsletter->email = $data['email'];
+        $newsletter->save();
 
         event(new UserHasRegisterdEvent($user));
 

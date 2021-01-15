@@ -35,8 +35,8 @@ class TeamSeeder extends Seeder
             ],
             [
                 'first_name' => "Fanny",
-                'last_name' => "jdfsl",
-                'function' => "Web Developer",
+                'last_name' => "Hunin",
+                'function' => "Web Designer",
                 'img' => "1.jpg",
             ],
         ]);

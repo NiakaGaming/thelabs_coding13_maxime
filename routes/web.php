@@ -18,6 +18,7 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ContactMailController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,7 @@ Route::resource('/admin/profil', ProfilController::class);
 Route::resource('/admin/map', MapController::class);
 Route::post('admin/article/approved-{article}', [ArticleController::class, "approved"])->middleware("admin_web")->name("admin.article.approved");
 Route::get('/admin/mail', [ContactMailController::class, "index"])->middleware("admin_web")->name("admin.mailbox.index");
+Route::resource('/admin/newsletter', NewsletterController::class);
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);

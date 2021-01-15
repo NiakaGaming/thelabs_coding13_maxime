@@ -23,7 +23,7 @@ class ArticleSeeder extends Seeder
                 'user_id' => 1,
                 'approved' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
             [
                 'title' => "Je suis un autre article",
@@ -32,7 +32,7 @@ class ArticleSeeder extends Seeder
                 'user_id' => 2,
                 'approved' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
             [
                 'title' => "Je suis un 3eme article",
@@ -41,7 +41,7 @@ class ArticleSeeder extends Seeder
                 'user_id' => 2,
                 'approved' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
             [
                 'title' => "Je suis un 3eme article",
@@ -50,7 +50,7 @@ class ArticleSeeder extends Seeder
                 'user_id' => 3,
                 'approved' => 0,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
         ]);
     }

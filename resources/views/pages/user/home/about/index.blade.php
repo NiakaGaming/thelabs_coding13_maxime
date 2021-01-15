@@ -39,7 +39,7 @@
             </div>
             <div class="text-center mt60">
                 <a href="#contact-form"
-                    class="site-btn  {{ $about->hide_show == 1 ? 'd-none' : '' }}">{{ $about->btn }}</a>
+                    class="site-btn  {{ $about->hide_show == 0 ? 'd-none' : '' }}">{{ $about->btn }}</a>
             </div>
             <!-- popup video -->
             <div class="intro-video">

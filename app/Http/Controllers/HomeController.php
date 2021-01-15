@@ -18,6 +18,7 @@ use App\Models\Categorie;
 use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Map;
+use App\Models\Newsletter;
 use Dotenv\Util\Str;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -67,7 +68,8 @@ class HomeController extends Controller
         foreach ($blog_quick as $key => $value) {
             $blog_quick_smummary[$key] = Str::substr($value->text, 0, 150) . "...";
         }
-        return view('pages.user.services.index', compact("navs", "logo", "services", "contact_form", "services_prime_1", "services_prime_2", "titles", "blog_quick", "blog_quick_smummary"));
+        $newsletters = Newsletter::all();
+        return view('pages.user.services.index', compact("navs", "logo", "services", "contact_form", "services_prime_1", "services_prime_2", "titles", "blog_quick", "blog_quick_smummary", "newsletters"));
     }
     public function indexBlog()
     {
@@ -83,7 +85,9 @@ class HomeController extends Controller
             $articles_summary[$key] = Str::substr($value->text, 0, 300) . "...";
         }
         $comments = Comment::all();
-        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments", "articles_summary", "categorie_random", "tag_random"));
+        $titles = Title::all();
+        $newsletters = Newsletter::all();
+        return view('pages.user.blog.index', compact("navs", "logo", "categories", "tags", "articles", "comments", "articles_summary", "categorie_random", "tag_random", "titles", "newsletters"));
     }
     public function indexContact()
     {
@@ -91,7 +95,8 @@ class HomeController extends Controller
         $logo = Logo::first();
         $map = Map::first();
         $contact_form = ContactForm::first();
-        return view('pages.user.contact.index', compact("navs", "logo", "map", "contact_form"));
+        $titles = Title::all();
+        return view('pages.user.contact.index', compact("navs", "logo", "map", "contact_form", "titles"));
     }
     public function indexAdmin()
     {
