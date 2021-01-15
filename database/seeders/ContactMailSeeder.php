@@ -17,12 +17,12 @@ class ContactMailSeeder extends Seeder
         DB::table('contact_mails')->insert([
             [
                 'title' => "Rendez-vous",
-                'subtitle' => "De : Niaka",
+                'subtitle' => "Niaka",
                 'text' => "Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.",
             ],
             [
                 'title' => "Premier contact",
-                'subtitle' => "De : Maxime",
+                'subtitle' => "Maxime",
                 'text' => "Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.",
             ],
         ]);

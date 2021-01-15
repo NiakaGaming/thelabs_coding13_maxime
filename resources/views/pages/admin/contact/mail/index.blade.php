@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="row">{{ $mail->id }}</th>
                     <td>{{ $mail->title }}</td>
-                    <td>{{ $mail->subtitle }}</td>
+                    <td>De : {{ $mail->subtitle }}</td>
                     <td>{{ $mail->text }}</td>
                 </tr>
             @endforeach

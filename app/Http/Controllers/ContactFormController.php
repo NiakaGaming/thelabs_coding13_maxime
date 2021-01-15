@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
+use App\Mail\ContactMailing;
+use App\Models\ContactMail;
 use App\Mail\ConfirmContactMail;
 use App\Models\ContactForm;
 use Illuminate\Http\Request;
@@ -45,13 +46,21 @@ class ContactFormController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "subject" => "required",
             "name" => "required",
+            "email" => "required",
+            "subject" => "required",
             "message" => "required",
         ]);
 
-        Mail::to("contact-mail@hotmail.com")->send(new ContactMail($request));
-        Mail::to($user->email)->send(new ConfirmContactMail($request));
+
+        $mail = new ContactMail;
+        $mail->title = $request->subject;
+        $mail->subtitle = $request->name;
+        $mail->text = $request->message;
+        $mail->save();
+
+        Mail::to("generique@labs.com")->send(new ContactMailing($request));
+        Mail::to($request->email)->send(new ConfirmContactMail($request));
 
         return redirect()->back();
     }

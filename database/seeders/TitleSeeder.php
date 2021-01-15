@@ -51,6 +51,10 @@ class TitleSeeder extends Seeder
                 'name' => "promotion_btn",
                 'title' => "Browse",
             ],
+            [
+                'name' => "footer",
+                'title' => "2017 All rights reserved. Designed by <a href='https://colorlib.com' target='blank'>Colorlib</a>",
+            ],
         ]);
     }
 }

@@ -11,14 +11,16 @@ class ConfirmContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $mail;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($m)
     {
-        //
+        $this->mail = $m;
     }
 
     /**
@@ -28,6 +30,8 @@ class ConfirmContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.ConfirmContactMail');
+        return $this->view('mails.ConfirmContactMail')->with([
+            'name' => $this->mail->name,
+        ]);
     }
 }
