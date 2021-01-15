@@ -277,6 +277,10 @@ return [
             'text' => 'Maps',
             'url'  => '/admin/map',
         ],
+        [
+            'text' => 'Mails',
+            'url'  => '/admin/mail',
+        ],
 
         // PARTIALS
         ['header' => 'PARTIALS'],

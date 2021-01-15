@@ -2,7 +2,7 @@
 
 return [
 
-    'fisrt_name'                  => 'Prénom',
+    'first_name'                  => 'Prénom',
     'last_name'                   => 'Nom',
     'email'                       => 'Email',
     'password'                    => 'Mot de passe',

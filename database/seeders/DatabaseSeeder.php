@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             ProfilSeeder::class,
             MapSeeder::class,
+            ContactMailSeeder::class,
         ]);
     }
 }

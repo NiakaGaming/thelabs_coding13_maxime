@@ -2,24 +2,26 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MailSender extends Mailable
+class WelcomeUserMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $mail;
+
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($m)
+    public function __construct(User $user)
     {
-        $this->mail = $m;
+        $this->user = $user;
     }
 
     /**
@@ -29,10 +31,6 @@ class MailSender extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.contact')->with([
-            'subject' => $this->mail->subject,
-            'name' => $this->mail->name,
-            'messages' => $this->mail->message,
-        ])->from($this->mail->email);
+        return $this->view('mails.WelcomeUser');
     }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\MailSender;
+use App\Mail\ContactMail;
+use App\Mail\ConfirmContactMail;
 use App\Models\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -49,7 +50,8 @@ class ContactFormController extends Controller
             "message" => "required",
         ]);
 
-        Mail::to("contact-mail@hotmail.com")->send(new MailSender($request));
+        Mail::to("contact-mail@hotmail.com")->send(new ContactMail($request));
+        Mail::to($user->email)->send(new ConfirmContactMail($request));
 
         return redirect()->back();
     }
