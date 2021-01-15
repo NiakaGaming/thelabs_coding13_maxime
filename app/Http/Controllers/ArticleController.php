@@ -13,9 +13,7 @@ class ArticleController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('redact');
-        // $this->middleware('admin');
-        // $this->middleware('web');
+        $this->middleware('redact_admin_web');
     }
 
     /**

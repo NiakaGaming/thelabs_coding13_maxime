@@ -12,8 +12,7 @@ class ProfilController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
-        $this->middleware('web');
+        $this->middleware('admin_web');
     }
 
     /**
