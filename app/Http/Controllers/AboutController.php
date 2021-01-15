@@ -100,4 +100,17 @@ class AboutController extends Controller
     {
         //
     }
+
+    public function hide($id)
+    {
+        $btn = About::find($id);
+        if ($btn->hide_show == 1) {
+            $btn->hide_show = 0;
+        } else {
+            $btn->hide_show = 1;
+        }
+        $btn->save();
+
+        return redirect()->back();
+    }
 }

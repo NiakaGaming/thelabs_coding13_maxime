@@ -31,6 +31,16 @@
                         <button class="site-btn">{{ $about->btn }}</button>
                     </div>
                 </a>
+                <a class="list-group-item list-group-item-action" id="toggle-home-list" data-toggle="list"
+                    href="#toggle-home" role="tab" aria-controls="home">
+                    <h2 class="text-center">Cacher/afficher le bouton</h2>
+                    <div class="text-center">
+                        <button class="site-btn">{{ $about->btn }}</button>
+                    </div>
+                    <div class=" badge badge-{{ $about->hide_show == 0 ? 'success' : 'warning' }}">
+                        <h4 class="mb-0">{{ $about->hide_show == 0 ? 'Affiché' : 'Caché' }}</h4>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="col-8">
@@ -54,6 +64,13 @@
                             <input type="text" class="form-control mb-3" id="btn" name="btn" value="{{ $about->btn }}">
                         </div>
                         <button class="btn btn-success" type="submit">Modifie</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade show" id="toggle-home" role="tabpanel" aria-labelledby="toggle-home-list">
+                    <form action="/admin/about/hid-show-{{ $about->id }}" method="post">
+                        @csrf
+                        <button class="btn btn-success"
+                            type="submit">{{ $about->hide_show == 0 ? 'Cacher' : 'Afficher' }}</button>
                     </form>
                 </div>
             </div>

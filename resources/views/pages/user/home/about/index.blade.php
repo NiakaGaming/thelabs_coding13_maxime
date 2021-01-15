@@ -31,14 +31,15 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <p>{{ $abouts[0]->text_1 }}</p>
+                    <p>{{ $about->text_1 }}</p>
                 </div>
                 <div class="col-md-6">
-                    <p>{{ $abouts[0]->text_2 }}</p>
+                    <p>{{ $about->text_2 }}</p>
                 </div>
             </div>
             <div class="text-center mt60">
-                <a href="#contact-form" class="site-btn">{{ $abouts[0]->btn }}</a>
+                <a href="#contact-form"
+                    class="site-btn  {{ $about->hide_show == 1 ? 'd-none' : '' }}">{{ $about->btn }}</a>
             </div>
             <!-- popup video -->
             <div class="intro-video">

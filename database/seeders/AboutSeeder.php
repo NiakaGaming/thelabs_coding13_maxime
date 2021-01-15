@@ -21,6 +21,7 @@ class AboutSeeder extends Seeder
                 'text_2' => "Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.",
 
                 'btn' => "Browse",
+                'hide_show' => 1,
             ],
         ]);
     }

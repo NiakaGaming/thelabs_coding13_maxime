@@ -18,6 +18,7 @@ class CreateAboutsTable extends Migration
             $table->text("text_1");
             $table->text("text_2");
             $table->string("btn");
+            $table->boolean("hide_show");
             $table->timestamps();
         });
     }

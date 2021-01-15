@@ -43,7 +43,7 @@ class HomeController extends Controller
         $services = Service::orderByDesc("id")->paginate(9);
         $services_quick = Service::all()->random(3);
         $titles = Title::all();
-        $abouts = About::all();
+        $about = About::first();
         $teams = Team::all();
         $choice = Choice::first();
         $random_team_1 = Team::all()->except($choice->team_id)->random(1);
@@ -51,7 +51,7 @@ class HomeController extends Controller
         $testimonials = Testimonial::all()->sortByDesc("id")->take(6);
         $video = Video::first();
         $contact_form = ContactForm::first();
-        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "abouts", "teams", "choice", "random_team_1", "random_team_2", "testimonials", "video", "contact_form"));
+        return view('pages.user.home.index', compact("navs", "logo", "carousels", "services", "services_quick", "titles", "about", "teams", "choice", "random_team_1", "random_team_2", "testimonials", "video", "contact_form"));
     }
     public function indexServices()
     {

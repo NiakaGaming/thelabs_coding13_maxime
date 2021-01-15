@@ -45,25 +45,26 @@ Route::post('/comment/{article}', [CommentController::class, 'store'])->name('ar
 
 // ADMIN
 // ----------------------------------------------------------------------------------------------------
-Route::get('/admin', [HomeController::class, 'indexAdmin'])->middleware("admin", "web")->name('admin');
+Route::get('/admin', [HomeController::class, 'indexAdmin'])->middleware("admin_web")->name('admin');
 Route::resource('/admin/carousel', CarouselController::class);
 Route::resource('/admin/service', ServiceController::class);
 Route::resource('/admin/about', AboutController::class);
+Route::post('/admin/about/hid-show-{id}', [AboutController::class, "hide"])->middleware("admin_web")->name("admin.about.hide-sho");
 Route::resource('/admin/video', VideoController::class);
 Route::resource('/admin/testimonial', TestimonialController::class);
 Route::resource('/admin/team', TeamController::class);
-Route::put('/admin/choice/{choice}', [ChoiceController::class, "update"])->name("admin.choice.edit");
+Route::put('/admin/choice/{choice}', [ChoiceController::class, "update"])->middleware("web")->name("admin.choice.edit");
 Route::resource('/admin/article', ArticleController::class);
 Route::resource('/admin/tag', TagController::class);
 Route::resource('/admin/categorie', CategorieController::class);
 Route::resource('/admin/profil', ProfilController::class);
 Route::resource('/admin/map', MapController::class);
-Route::post('admin/article/approved-{article}', [ArticleController::class, "approved"])->name("admin.article.approved");
-Route::get('/admin/mail', [ContactMailController::class, "index"])->name("admin.mailbox.index");
+Route::post('admin/article/approved-{article}', [ArticleController::class, "approved"])->middleware("admin_web")->name("admin.article.approved");
+Route::get('/admin/mail', [ContactMailController::class, "index"])->middleware("admin_web")->name("admin.mailbox.index");
 // Partials
 Route::resource('/admin/nav', NavController::class);
 Route::resource('/admin/title', TitleController::class);
-Route::put('/admin/logo/{logo}', [LogoController::class, "update"])->name("admin.logo.edit");
+Route::put('/admin/logo/{logo}', [LogoController::class, "update"])->middleware("admin_web")->name("admin.logo.edit");
 Route::resource('/admin/contact-form', ContactFormController::class);
 // ----------------------------------------------------------------------------------------------------
 
